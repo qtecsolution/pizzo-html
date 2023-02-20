@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-$primaryFont: "Inter", sans-serif;
-// $secondaryFont: "Epilogue", sans-serif;
+$primaryFont: "Outfit", sans-serif;
 
 // FONT SIZE PIXEL TO REM
 @function calculateRem($size, $base: 16) {

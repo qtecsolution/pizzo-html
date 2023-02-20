@@ -1,20 +1,2 @@
 @use "../../global" as *;
 @use "../../partials" as *;
-
-.mainsection {
-  @include w100;
-
-  @include breakpoint(tab992) {
-    width: calc(100% - size(225));
-    margin-left: auto;
-  }
-
-  &.maincollapsed {
-    display: none;
-
-    @include breakpoint(tab992) {
-      display: block;
-      width: calc(100% - size(80));
-    }
-  }
-}

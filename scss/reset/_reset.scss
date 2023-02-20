@@ -108,7 +108,7 @@ video {
 }
 
 body {
-  @include setBgColor($bodybg, $textPrimary);
+  // @include setBgColor($bodybg, $textPrimary);
   @include font($primaryFont, 14, normal, normal, 19.6);
   text-rendering: optimizeSpeed;
   overflow-x: hidden;
