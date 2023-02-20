@@ -1,0 +1,1700 @@
+@use "../../global"as *;
+@use "../../partials"as *;
+
+.modal {
+  &-content {
+    @include radius(8);
+    // box-shadow: $modalshadow;
+  }
+
+  &-header {
+    border-bottom: 0;
+
+    .btn-close {
+      @include square(24);
+      @include flex-center;
+      overflow: hidden;
+      opacity: 1;
+
+      svg {
+        @include wh100;
+        @include transitiontransform;
+      }
+
+      @include hover {
+        svg {
+          @include rotate(90);
+
+          path {
+            // stroke: $danger;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.closejob-modal,
+.deletejob-modal,
+.disqualify-modal {
+  .modal {
+    &-content {
+      border: none;
+      box-shadow: $box-shadow-1;
+    }
+
+    &-header {
+      @include border-single(bottom, solid, 1, $headerborder);
+      margin: 0 5%;
+
+      .modal-title {
+        color: $headingText;
+        @include font($primaryFont, 16, medium, normal, 25);
+      }
+
+    }
+
+    &-body {
+      padding: size(12) 5%;
+
+      .modal-text {
+        @include font($primaryFont, 14, normal, normal, 23);
+        color: $textPrimary;
+
+        .jobname {
+          @include font($primaryFont, 14, semibold, normal, 23);
+          color: $headingText;
+
+        }
+
+
+      }
+
+      .disqualifyinput {
+        background: $bodybg;
+        padding: size(10) size(14);
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        @include w100;
+
+        &:focus {}
+
+      }
+    }
+
+    &-footer {
+      gap: size(10);
+      margin: 0 5%;
+
+      .modal-cancel-btn {
+        padding: size(10) size(30);
+        @include border(solid, 1, $headerborder);
+        @include radius(7);
+        @include transitionsall;
+
+        @include hover {
+          @include setBgColor(darken($white, 5%), $textPrimary);
+        }
+      }
+
+      .modal-close-btn {
+        padding: size(10) size(30);
+        @include setBgColor($danger, $white);
+        @include radius(7);
+        @include border(solid, 1, $danger);
+        @include transitionsall;
+
+        @include hover {
+          @include setBgColor(darken($danger, 10%), $white);
+        }
+
+      }
+    }
+
+
+  }
+
+}
+
+.succesfully-created-modal {
+  .modal {
+    .customcheck {
+      &-label {
+        padding-left: size(20);
+        color: $textgray;
+
+        &::before {
+          @include circle;
+        }
+      }
+    }
+
+    .social-selects {
+      @include flex;
+      gap: size(10);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .single-select {
+      .checklabel {
+        padding-top: size(16);
+        padding-right: size(16);
+        height: size(64);
+        width: size(106);
+        user-select: none;
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        @include flex-end;
+        position: relative;
+
+        .checkmark {
+          display: inline-block;
+          position: absolute;
+          left: size(10);
+          top: size(10);
+          background-color: $white;
+          @include border(solid, 1, $headerborder);
+          @include square(20);
+          top: 50%;
+          transform: translateY(-50%);
+          @include circle;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: size(6);
+            top: size(2);
+            height: size(12);
+            width: size(6);
+            transform: rotate(45deg);
+            border: solid white;
+            border-width: 0 size(2) size(2) 0;
+            display: none;
+          }
+
+        }
+
+      }
+
+      input[type="checkbox"] {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        display: none;
+
+        &:checked {
+          ~.checklabel {
+            border-color: $primary;
+            background: rgba(76, 111, 255, 0.05);
+
+            .checkmark {
+              background: $primary;
+              border-color: $primary;
+
+              &::after {
+                display: block;
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    &-footer {
+      border-top: none;
+
+      .viewsite-btn {
+        @include setBgColor($primary, $white);
+        @include radius(10);
+        padding: size(8) size(10);
+        @include transitionsall;
+        @include border(solid, 1, $primary);
+        @include font($primaryFont, 12, medium, normal, 16);
+
+        @include breakpoint(mobile414) {
+          padding: size(12) size(20);
+        }
+
+        @include hover {
+          @include setBgColor(transparent, $textPrimary);
+        }
+      }
+    }
+
+  }
+}
+
+.addemployee-modal {
+  @include breakpoint(mobile576) {}
+
+  .modal {
+    &-content {
+      border: none;
+      box-shadow: $box-shadow-1;
+    }
+
+    &-header {
+      @include border-single(bottom, solid, 1, $headerborder);
+      margin: 0 5%;
+
+      .modal-title {
+        color: $headingText;
+        @include font($primaryFont, 16, medium, normal, 25);
+      }
+
+    }
+
+    &-body {
+      padding: size(12) 5%;
+
+      .employee-image {
+        padding: size(16) size(0);
+        @include flex-column;
+        gap: size(10);
+        @include border-single(bottom, solid, 1, $headerborder);
+
+        @include breakpoint(mobile576) {
+          padding: size(24) size(0);
+          gap: size(20);
+        }
+
+        .title {
+          @include font($primaryFont, 14, medium, normal, 25);
+          color: $headingText;
+
+          @include breakpoint(mobile576) {
+            @include font($primaryFont, 16, medium, normal, 25);
+
+          }
+        }
+
+        .image-box {
+          label {
+            @include flex;
+            align-items: center;
+            gap: size(6)
+          }
+        }
+      }
+
+      .uploaded {
+        @include flex-between;
+        align-items: flex-end;
+
+        .left-content {
+
+          .employee-thumb {
+            @include square(100);
+            overflow: hidden;
+            @include radius(10);
+
+            img {
+              @include wh100;
+              object-fit: cover;
+            }
+          }
+
+        }
+
+        .right-content {
+
+          .buttons {
+            @include flex;
+            gap: size(10);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+
+            .upload-btn {
+              padding: size(12) size(18);
+              @include setBgColor($primary, $white);
+              @include radius(8);
+              @include font($primaryFont, 12, semibold, normal, 12);
+              @include border(solid, 1, $primary);
+              @include transitionsall;
+
+              @include hover {
+                @include setBgColor(darken($primary, 10%), $white);
+              }
+
+            }
+
+            .remove-btn {
+              padding: size(12) size(18);
+              @include setBgColor($white, $textPrimary);
+              @include radius(8);
+              @include font($primaryFont, 12, semibold, normal, 12);
+              @include border(solid, 1, $headerborder);
+              @include transitionsall;
+
+              @include hover {
+                @include setBgColor(darken($white, 10%), $textPrimary);
+              }
+            }
+
+          }
+        }
+      }
+
+      .permissions {
+        @include border-single(top, solid, 1, $headerborder);
+        padding: size(16) size(0);
+        @include flex-column;
+        gap: size(10);
+
+        @include breakpoint(mobile576) {
+          padding: size(24) size(0);
+          gap: size(20);
+        }
+
+        .title {
+          @include font($primaryFont, 14, medium, normal, 25);
+          color: $headingText;
+
+          @include breakpoint(mobile576) {
+            @include font($primaryFont, 16, medium, normal, 25);
+
+          }
+
+        }
+
+        .permission {
+          @include flex-between;
+
+          .left-content {
+            @include flex;
+            gap: size(8);
+
+            .icon {}
+
+            .texts {
+              @include flex-column;
+              gap: size(6);
+            }
+
+
+          }
+
+          .right-content {}
+
+          &-title {
+            color: $headingText;
+            @include font($primaryFont, 12, normal, normal, 17);
+
+            @include breakpoint(mobile576) {
+              @include font($primaryFont, 14, normal, normal, 17);
+
+            }
+
+          }
+
+          &-des {
+            color: $textSecondary;
+            @include font($primaryFont, 12, normal, normal, 17);
+
+            @include breakpoint(mobile576) {
+              @include font($primaryFont, 14, normal, normal, 17);
+
+            }
+
+
+          }
+        }
+
+
+
+      }
+    }
+
+    &-footer {
+      gap: size(10);
+      margin: 0 5%;
+
+      .modal-discard-btn {
+        padding: size(10) size(30);
+        @include border(solid, 1, $headerborder);
+        @include radius(7);
+        @include transitionsall;
+        @include font($primaryFont, 12, normal, normal, 17);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 14, normal, normal, 17);
+
+        }
+
+        @include hover {
+          @include setBgColor(darken($white, 5%), $textPrimary);
+        }
+      }
+
+      .modal-save-btn {
+        padding: size(10) size(30);
+        @include setBgColor($success, $white);
+        @include radius(7);
+        @include border(solid, 1, $success);
+        @include transitionsall;
+        @include font($primaryFont, 12, normal, normal, 17);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 14, normal, normal, 17);
+
+        }
+
+        @include hover {
+          @include setBgColor(darken($success, 10%), $white);
+        }
+
+      }
+    }
+
+
+  }
+}
+
+.sendemail-modal {
+  .modal {
+
+    &-header {
+      @include border-single(bottom, solid, 1, $headerborder);
+      margin: 0 5%;
+
+      .modal-title {
+        color: $headingText;
+        @include font($primaryFont, 16, medium, normal, 25);
+      }
+
+    }
+
+    &-footer {
+      gap: size(10);
+      margin: 0 5%;
+
+      .modal-discard-btn {
+        padding: size(10) size(30);
+        @include border(solid, 1, $headerborder);
+        @include radius(7);
+        @include transitionsall;
+        @include font($primaryFont, 12, normal, normal, 17);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 14, normal, normal, 17);
+
+        }
+
+        @include hover {
+          @include setBgColor(darken($white, 5%), $textPrimary);
+        }
+      }
+
+      .modal-save-btn {
+        padding: size(10) size(30);
+        @include setBgColor($success, $white);
+        @include radius(7);
+        @include border(solid, 1, $success);
+        @include transitionsall;
+        @include font($primaryFont, 12, normal, normal, 17);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 14, normal, normal, 17);
+
+        }
+
+        @include hover {
+          @include setBgColor(darken($success, 10%), $white);
+        }
+
+      }
+    }
+  }
+
+  .custom-email {
+    @include border(solid, 1, $headerborder);
+    @include radius(10);
+
+    &-fromto {
+      @include border-single(bottom, solid, 1, $headerborder);
+      padding: size(20) size(14);
+      @include flex-column;
+      gap: size(8);
+      @include font($primaryFont, 12, normal, normal, 16);
+
+      @include breakpoint(mobile576) {
+        @include font($primaryFont, 14, normal, normal, 16);
+
+      }
+    }
+
+    &-subject {
+      @include border-single(bottom, solid, 1, $headerborder);
+      padding: size(12) size(14);
+      @include flex-between;
+      align-items: center;
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: size(8);
+        flex: 1;
+
+
+      }
+
+      .right {
+        .dropdown {
+
+          &-menu {
+            padding: size(12);
+            border: size(1) solid $headerborder;
+            box-shadow: $box-shadow-1;
+            @include radius(8);
+          }
+
+          &-item {
+            padding: size(8) size(10);
+            @include transitionsall;
+            @include font($primaryFont, 13, normal, normal, 18);
+            @include radius(6);
+            user-select: none;
+            color: $textPrimary;
+            @include w100;
+
+            @include hover {
+              background: $headerborder;
+            }
+
+          }
+        }
+      }
+    }
+
+    &-writting {
+
+      .attachment-list {
+        @include flex-between;
+        @include border(solid, 1, $headerborder);
+        margin: size(3) size(8);
+        padding: size(10);
+        @include radius(8);
+        @include font($primaryFont, 14, normal, normal, 20);
+
+        .right {
+          @include flex;
+          align-items: center;
+          gap: size(8);
+
+          .progressbar {}
+
+          .cancel-icon {
+            cursor: pointer;
+
+            svg {
+              path {
+                @include transitionsall;
+              }
+
+              @include hover {
+                path {
+                  stroke: $danger;
+                }
+              }
+            }
+          }
+
+          .failed-text {
+            color: $danger;
+            @include font($primaryFont, 10, normal, normal, 16);
+
+
+          }
+        }
+
+        &.uploading {
+
+          .left {
+            .name {
+              color: #D0D5DD;
+            }
+          }
+        }
+      }
+    }
+
+    .upload-attachment {
+      padding: size(10) size(14);
+    }
+
+
+  }
+}
+
+.create-event-modal,
+.preview-event-modal {
+  .modal {
+
+    &-header {
+      @include border-single(bottom, solid, 1, $headerborder);
+
+      .modal-title {
+        color: $headingText;
+        @include font($primaryFont, 14, medium, normal, 25);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 16, medium, normal, 25);
+
+        }
+      }
+
+      .modal-step {
+        @include font($primaryFont, 14, medium, normal, 25);
+        color: $textPrimary;
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 16, medium, normal, 25);
+
+        }
+      }
+
+
+    }
+
+    &-body {
+
+
+
+      // create event modal 
+      .time-wrapper {
+        @include flex;
+        align-items: center;
+        gap: size(10);
+        flex-wrap: wrap;
+
+        .inputbox {
+          width: 44%;
+        }
+      }
+
+      .location {
+        @include flex;
+        align-items: center;
+        gap: size(4);
+
+        span {
+          color: $primary;
+          @include font($primaryFont, 14, normal, normal, 4);
+          display: inline-block;
+          margin-top: size(1);
+        }
+      }
+
+      .send-invitation {
+        @include border(solid, 1, $headerborder);
+        @include flex-center-vert;
+        gap: size(10);
+        padding: size(14);
+        @include radius(8);
+      }
+
+      // preview event modal 
+
+      .logo {
+        @include flex-center;
+        padding: size(40) size(0);
+
+        .company-logo {
+          max-width: size(200);
+          height: auto;
+
+          img {
+            @include wh100;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .preview__card {
+        @include border(solid, 1, $tableBorder);
+        padding: size(10);
+        @include radius(30);
+        @include flex-column;
+        gap: size(20);
+        margin: size(0) size(10);
+
+        @include breakpoint(mobile576) {
+          padding: size(22);
+          margin: size(0) size(30);
+
+        }
+
+        &-info {
+
+          @include flex-between;
+          align-items: flex-start;
+
+          .left {
+            @include flex-column;
+            gap: size(10);
+          }
+
+          .right {
+            .date-box {
+              @include flex-column;
+              @include border(solid, 1, $headerborder);
+              @include radius(20);
+              overflow: hidden;
+
+              .month {
+                display: block;
+                @include w100;
+                @include setBgColor(#CD0000, $white);
+                padding: size(10) size(34);
+                @include font($primaryFont, 14, normal, normal, 18);
+                text-align: center;
+              }
+
+              .date {
+                padding: size(10) size(34);
+                display: block;
+                font-size: 30px;
+                color: $headingText;
+                @include font($primaryFont, 34, medium, normal, 41);
+              }
+            }
+          }
+
+          .invited {
+            color: $success;
+            @include font($primaryFont, 14, normal, normal, 18);
+          }
+
+          .event-title {
+            color: $headingText;
+            @include font($primaryFont, 24, medium, normal, 30);
+
+            @include breakpoint(tab992) {
+              @include font($primaryFont, 34, medium, normal, 40);
+            }
+          }
+
+          .event-des {
+            color: $textPrimary;
+            @include font($primaryFont, 12, medium, normal, 17);
+
+            @include breakpoint(mobile576) {
+              @include font($primaryFont, 14, medium, normal, 17);
+
+            }
+
+          }
+
+          .preview-info {
+            padding-top: size(10);
+            @include flex-column;
+            gap: size(24);
+          }
+
+          .timebox,
+          .locationbox,
+          .personsbox {
+            @include flex;
+            gap: size(10);
+
+            div {
+              @include flex-column;
+              gap: size(10);
+
+              .region {
+                color: $textSecondary;
+              }
+
+            }
+          }
+
+
+        }
+
+        &-buttons {
+          @include flex-column;
+          gap: size(10);
+
+          .accept-button {
+            @include setBgColor($headingText, $white);
+            padding: size(12) size(0);
+            @include radius(50);
+            @include transitionsall;
+
+            @include hover {
+              @include setBgColor(darken($headingText, 10%), $white);
+            }
+
+          }
+
+          .decline-button {
+            @include setBgColor($headerborder, $textPrimary);
+            padding: size(12) size(0);
+            @include radius(50);
+            @include transitionsall;
+
+            @include hover {
+              @include setBgColor(darken($headerborder, 10%), $textPrimary);
+            }
+          }
+        }
+
+        &-text {
+          p {
+            @include font($primaryFont, 12, normal, normal, 20);
+          }
+
+        }
+
+        .follow-text {
+          text-align: center;
+          padding: size(20) size(0);
+          color: $textSecondary;
+          @include font($primaryFont, 14, normal, normal, 20);
+        }
+
+
+      }
+
+      .footer-logo {
+        padding: size(30) size(0);
+        @include flex-center;
+
+        .footer.logo {
+          max-width: size(200);
+          overflow: hidden;
+          height: auto;
+
+          img {
+
+            @include wh100;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .social-box {
+        @include flex-column;
+        gap: size(20);
+
+        .title {
+          color: $textPrimary;
+          font-size: size(12);
+          font-weight: 500;
+          text-align: center;
+          padding-right: size(16)
+        }
+
+        .social-list {
+          @include list-horizontal;
+          justify-content: center;
+          gap: size(12);
+
+          &-link {
+            background: $headerborder;
+            @include square(38);
+            @include circle;
+            @include flex-center;
+            overflow: hidden;
+
+            .icon {
+              @include square(14);
+              @include flex-center;
+              overflow: hidden;
+
+              svg {
+                @include wh100;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    &-footer {
+      gap: size(10);
+      margin: 0 5%;
+
+      .modal-discard-btn {
+        padding: size(10) size(30);
+        @include border(solid, 1, $headerborder);
+        @include radius(7);
+        @include transitionsall;
+        @include font($primaryFont, 12, normal, normal, 17);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 14, normal, normal, 17);
+
+        }
+
+        @include hover {
+          @include setBgColor(darken($white, 5%), $textPrimary);
+        }
+      }
+
+      .modal-save-btn {
+        padding: size(10) size(30);
+        @include setBgColor($success, $white);
+        @include radius(7);
+        @include border(solid, 1, $success);
+        @include transitionsall;
+        @include font($primaryFont, 12, normal, normal, 17);
+
+        @include breakpoint(mobile576) {
+          @include font($primaryFont, 14, normal, normal, 17);
+
+        }
+
+        @include hover {
+          @include setBgColor(darken($success, 10%), $white);
+        }
+
+      }
+    }
+
+
+  }
+}
+
+
+// modal darkmode 
+.darkmode {
+  .succesfully-created {
+    .modal {
+      &-content {
+        background: $lightDark;
+      }
+
+      .customcheck {
+        &-label {
+          padding-left: size(20);
+          color: $white;
+
+          &::before {
+            @include circle;
+          }
+        }
+      }
+
+      .single-select {
+        .checklabel {
+          border-color: $textgray;
+
+          .checkmark {
+            background-color: $shade-1;
+
+            &::after {}
+
+          }
+
+        }
+
+        input[type="checkbox"] {
+
+          &:checked {
+            ~.checklabel {
+              border-color: $primary;
+              background: rgba(76, 111, 255, 0.05);
+
+
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+
+  .closejob-modal,
+  .deletejob-modal,
+  .disqualify-modal {
+
+    .modal {
+      &-content {
+        background: $lightDark;
+      }
+
+      &-header {
+        border-color: $headingText;
+
+        .modal-title {
+          color: $white;
+          @include font($primaryFont, 16, medium, normal, 25);
+        }
+
+      }
+
+      &-body {
+        padding: size(12) 5%;
+
+        .modal-text {
+          @include font($primaryFont, 14, normal, normal, 23);
+          color: $white;
+
+          .jobname {
+            @include font($primaryFont, 14, semibold, normal, 23);
+            color: $white;
+
+          }
+
+
+        }
+
+        .disqualifyinput {
+          background-color: #292c2e;
+          border-color: $headingText;
+          color: $white;
+
+          &::placeholder {
+            color: darken($white, 20%);
+          }
+
+          &:focus {}
+
+        }
+      }
+
+      &-footer {
+        border-color: $headingText;
+
+        .modal-cancel-btn {
+          border-color: $headingText;
+          color: $white;
+
+          @include hover {
+            @include setBgColor(darken($shade-1, 5%), $white);
+          }
+        }
+
+        .modal-close-btn {
+          padding: size(10) size(30);
+          @include setBgColor($danger, $white);
+          @include radius(7);
+          @include border(solid, 1, $danger);
+          @include transitionsall;
+
+          @include hover {
+            @include setBgColor(darken($danger, 10%), $white);
+          }
+
+        }
+      }
+
+
+    }
+
+  }
+
+  .addemployee-modal {
+    .modal {
+
+
+      &-header {
+        border-color: $headingText;
+
+        .modal-title {
+          color: darken($white, 20%);
+        }
+
+      }
+
+      &-body {
+        .employee-image {
+          border-color: $headingText;
+
+          .title {
+            color: darken($white, 30%);
+          }
+
+          .image-box {
+            label {
+              color: darken($white, 30%);
+
+            }
+          }
+        }
+
+        .uploaded {
+
+          .right-content {
+
+            .buttons {
+              .upload-btn {
+                @include setBgColor($primary, $white);
+                @include border(solid, 1, $primary);
+
+                @include hover {
+                  @include setBgColor(darken($primary, 10%), $white);
+                }
+
+              }
+
+              .remove-btn {
+                @include setBgColor($darkPrimary, $white);
+                border-color: $textPrimary;
+                color: darken($white, 20%);
+
+                @include hover {
+                  @include setBgColor(darken($lightDark, 5%), $textPrimary);
+                }
+              }
+
+            }
+          }
+        }
+
+        .permissions {
+          border-color: $headingText;
+
+          .title {
+            color: darken($white, 10%);
+
+          }
+
+          .permission {
+            @include flex-between;
+
+
+            &-title {
+              color: darken($white, 10%);
+
+            }
+
+            &-des {
+              color: $textSecondary;
+              @include font($primaryFont, 12, normal, normal, 17);
+
+              @include breakpoint(mobile576) {
+                @include font($primaryFont, 14, normal, normal, 17);
+
+              }
+
+
+            }
+          }
+
+
+
+        }
+      }
+
+      &-footer {
+        border-color: $headingText;
+
+        .modal-discard-btn {
+          border-color: $headingText;
+          color: darken($white, 20%);
+
+          @include hover {
+            @include setBgColor(darken($lightDark, 5%), $textPrimary);
+          }
+        }
+
+
+      }
+
+
+    }
+  }
+
+
+  .sendemail-modal {
+    .modal {
+
+      &-header {
+        border-color: $headingText;
+
+        .modal-title {
+          color: darken($white, 10%);
+          @include font($primaryFont, 16, medium, normal, 25);
+        }
+
+      }
+
+      &-footer {
+        border-color: $headingText;
+
+        .modal-discard-btn {
+          border-color: $headingText;
+          color: darken($white, 10%);
+
+          @include hover {
+            @include setBgColor(darken($shade-1, 5%), $white);
+          }
+        }
+
+
+      }
+    }
+
+    .custom-email {
+      border-color: $headingText;
+
+      &-fromto {
+        @include border-single(bottom, solid, 1, $headingText);
+        color: darken($white, 20%);
+      }
+
+      &-subject {
+        @include border-single(bottom, solid, 1, $headingText);
+        color: darken($white, 20%);
+
+        input {
+          background: transparent;
+        }
+
+        .right {
+          .dropdown {
+            color: darken($white, 20%);
+
+            &-menu {
+              background: $headingText;
+              border-color: $textPrimary;
+            }
+
+            &-item {
+              color: darken($white, 10%);
+
+              @include hover {
+                background: $darkText;
+              }
+
+            }
+          }
+        }
+      }
+
+      &-writting {
+
+        .attachment-list {
+          border-color: $headingText;
+
+          .right {
+
+            .progressbar {}
+
+            .cancel-icon {
+              cursor: pointer;
+
+              svg {
+                path {
+                  @include transitionsall;
+
+                }
+
+                @include hover {
+                  path {
+                    stroke: $danger;
+                  }
+                }
+              }
+            }
+
+            .failed-text {
+              color: $danger;
+              @include font($primaryFont, 10, normal, normal, 16);
+
+
+            }
+          }
+
+          &.uploading {
+
+            .left {
+              .name {
+                color: #D0D5DD;
+              }
+            }
+          }
+        }
+      }
+
+      .upload-attachment {
+        padding: size(10) size(14);
+      }
+
+
+    }
+  }
+
+  .create-event-modal,
+  .preview-event-modal {
+    .modal {
+
+      &-header {
+        border-color: $headingText;
+
+        .modal-title {
+          color: darken($white, 30%);
+          @include font($primaryFont, 14, medium, normal, 25);
+
+          @include breakpoint(mobile576) {
+            @include font($primaryFont, 16, medium, normal, 25);
+
+          }
+        }
+
+        .modal-step {
+          @include font($primaryFont, 14, medium, normal, 25);
+          color: $textPrimary;
+
+          @include breakpoint(mobile576) {
+            @include font($primaryFont, 16, medium, normal, 25);
+
+          }
+        }
+
+
+      }
+
+      &-body {
+
+
+
+        // create event modal 
+        .time-wrapper {
+          @include flex;
+          align-items: center;
+          gap: size(10);
+          flex-wrap: wrap;
+
+          .inputbox {
+            width: 44%;
+          }
+        }
+
+        .location {
+          @include flex;
+          align-items: center;
+          gap: size(4);
+
+          span {
+            color: $primary;
+            @include font($primaryFont, 14, normal, normal, 4);
+            display: inline-block;
+            margin-top: size(1);
+          }
+        }
+
+        .send-invitation {
+          border-color: $textPrimary;
+          @include flex-center-vert;
+          gap: size(10);
+          padding: size(14);
+          @include radius(8);
+          color: darken($white, 20%);
+        }
+
+        // preview event modal 
+
+        .logo {
+          @include flex-center;
+          padding: size(40) size(0);
+
+          .company-logo {
+            max-width: size(200);
+            height: auto;
+
+            img {
+              @include wh100;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .preview__card {
+          border-color: $headingText;
+
+          &-info {
+
+            .right {
+              .date-box {
+                border-color: $headingText;
+
+                .month {
+                  @include setBgColor(#CD0000, $white);
+                }
+
+                .date {
+                  color: darken($white, 10%);
+                }
+              }
+            }
+
+            .invited {
+              color: $success;
+            }
+
+            .event-title {
+              color: darken($white, 20%);
+            }
+
+            .event-des {
+              color: darken($white, 10%);
+
+            }
+
+            .preview-info {
+              padding-top: size(10);
+              @include flex-column;
+              gap: size(24);
+              color: darken($white, 20%);
+            }
+
+            .timebox,
+            .locationbox,
+            .personsbox {
+
+              svg {
+                path {
+                  stroke: darken($white, 20%);
+                }
+              }
+
+              div {
+                .region {
+                  color: darken($white, 25%);
+                }
+
+              }
+            }
+
+
+          }
+
+          &-buttons {
+
+            .accept-button {
+              @include setBgColor($headingText, $white);
+
+              @include hover {
+                @include setBgColor(darken($headingText, 10%), $white);
+              }
+
+            }
+
+            .decline-button {
+              @include setBgColor($lightDark, darken($white, 20%));
+              padding: size(12) size(0);
+              @include radius(50);
+              @include transitionsall;
+
+              @include hover {
+                @include setBgColor(darken($lightDark, 5%), darken($white, 10%));
+              }
+            }
+          }
+
+          &-text {
+            p {
+              @include font($primaryFont, 12, normal, normal, 20);
+              color: darken($white, 20%);
+            }
+
+          }
+
+          .follow-text {
+            color: $textSecondary;
+          }
+
+
+        }
+
+        .social-box {
+          @include flex-column;
+          gap: size(20);
+
+          .title {
+            color: darken($white, 20%);
+
+          }
+
+          .social-list {
+            @include list-horizontal;
+            justify-content: center;
+            gap: size(12);
+
+            &-link {
+              background: $headerborder;
+              @include square(38);
+              @include circle;
+              @include flex-center;
+              overflow: hidden;
+
+              .icon {
+                @include square(14);
+                @include flex-center;
+                overflow: hidden;
+
+                svg {
+                  @include wh100;
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+      &-footer {
+        border-color: $headingText;
+
+        .modal-discard-btn {
+          border-color: $headingText;
+          color: darken($white, 20%);
+
+          @include hover {
+            @include setBgColor(#292c2e, darken($white, 10%));
+          }
+        }
+
+        .modal-save-btn {
+          padding: size(10) size(30);
+          @include setBgColor($success, $white);
+          @include radius(7);
+          @include border(solid, 1, $success);
+          @include transitionsall;
+          @include font($primaryFont, 12, normal, normal, 17);
+
+          @include breakpoint(mobile576) {
+            @include font($primaryFont, 14, normal, normal, 17);
+
+          }
+
+          @include hover {
+            @include setBgColor(darken($success, 10%), $white);
+          }
+
+        }
+      }
+
+
+    }
+  }
+
+
+}
+
+.settingsmodal {
+  .modal-header {
+    @include border-single(bottom, solid, 1, $headerborder);
+
+    .modal-title {
+      color: $headingText;
+      font-size: size(16);
+      font-weight: 500;
+    }
+  }
+
+  .modal-body {
+    @include flex-column;
+    gap: size(24);
+
+    .addform {
+      @include flex-column;
+      gap: size(16);
+
+      .inputbox {
+        @include flex-column;
+        gap: size(12);
+
+        .inputlabel {
+          color: $headingText;
+          font-size: size(14);
+          font-weight: 600;
+          text-align: left;
+        }
+
+        .inputfield {
+          @include setBgColor($bodybg, $headingText);
+          @include border(solid, 1, $headerborder);
+          @include radius(8);
+          font-size: size(14);
+          font-weight: 400;
+          padding: size(12.5) size(16);
+          @include transitionsall;
+
+          &:focus {
+            border-color: $primary;
+            background: transparent;
+          }
+        }
+      }
+    }
+
+    .modalplaceholder-info {
+      @include flex-column;
+      gap: size(16);
+
+      .modalplaceholder {
+        @include flex-column;
+        gap: size(16);
+
+        &-header {
+          .title {
+            color: $headingText;
+            font-size: size(14);
+            font-weight: 600;
+          }
+        }
+
+        &-body {
+          @include flex-center-vert;
+          gap: size(4);
+          flex-wrap: wrap;
+
+          .badge-placeholder {
+            @include setBgColor($headerborder, $headingText);
+            @include radius(100);
+            font-size: size(12);
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
+            padding: size(8) size(16);
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      .info {
+        &-text {
+          color: $textPrimary;
+          font-size: size(12);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    gap: size(10);
+    padding-bottom: size(24);
+
+    .btn-cancel {
+      width: size(101);
+      height: size(36);
+      font-size: size(12);
+      font-weight: 600;
+    }
+
+    .btn-save {
+      width: size(123);
+      height: size(36);
+      @include setBgColor($success, $white);
+      @include radius(8);
+      font-size: size(12);
+      font-weight: 600;
+      @include transitionsall;
+
+      @include hover {
+        @include setBgColor(darken($success, 10%), $white);
+      }
+    }
+  }
+}

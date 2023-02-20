@@ -1,0 +1,238 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+/**=======================================================**
+                  AUTHENTICATIONS START
+**=======================================================**/
+
+.authform {
+  @include flex-column;
+  gap: size(16);
+
+  .inputbox {
+    @include flex-column;
+    gap: size(8);
+    position: relative;
+
+    .inputlabel {
+      display: block;
+      margin-bottom: size(4);
+    }
+
+    .inputfield {
+      @include setBgColor($white, $headingText);
+      padding: size(14.5) size(12) size(14.5) size(20);
+      @include transitionsall;
+
+      &::placeholder {
+        color: $checkborder;
+      }
+
+      &:focus {
+        border-color: $primary;
+      }
+    }
+
+    .btn-toggle {
+      @include square(48);
+      position: absolute;
+      top: size(28);
+      right: 0;
+    }
+
+    &.errorfield {
+      .inputfield {
+        border-color: $danger;
+      }
+    }
+
+    &.passwordbox {
+      .inputfield {
+        padding-right: size(54);
+      }
+    }
+
+    .employeelist {
+      @include flex-center-vert;
+      gap: size(4);
+      flex-wrap: wrap;
+
+      .inputradio {
+        .radio {
+          &:checked ~ .radiolabel {
+            @include setBgColor($primary, $white);
+            border-color: $primary;
+            font-weight: 500;
+          }
+        }
+
+        .radiolabel {
+          // width: size(64);
+          // height: size(48);
+          @include setBgColor($white, $textSecondary);
+          @include border(solid, 1, $headerborder);
+          @include radius(10);
+          @include flex-center;
+          font-size: size(13);
+          font-weight: 400;
+          cursor: pointer;
+          padding: size(12) size(14);
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .agreebox {
+    .agreecheck {
+      &:checked ~ .agreelabel {
+        &::before {
+          background: $primary;
+          border-color: $primary;
+        }
+
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+
+    .agreelabel {
+      position: relative;
+      padding-left: size(22);
+      cursor: pointer;
+      font-size: size(13);
+      color: $textPrimary;
+
+      .link {
+        color: $primary;
+        font-weight: 500;
+        @include transitionsall;
+
+        @include hover {
+          text-decoration: underline;
+        }
+      }
+
+      &::selection {
+        @include setBgColor(transparent, $primary);
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+      }
+
+      &::before {
+        left: 0;
+        @include transform(translateY(-50%));
+        @include square(16);
+        background: $white;
+        @include border(solid, 2, $checkborder);
+        @include radius(3);
+      }
+
+      &::after {
+        width: size(5);
+        height: size(9);
+        @include border(solid, 2, $white);
+        @include transform(translateY(-60%) rotate(45deg));
+        border-top: 0;
+        border-left: 0;
+        left: size(5.75);
+        opacity: 0;
+        visibility: hidden;
+        @include transitionsall;
+      }
+    }
+  }
+
+  .forgotlink {
+    color: $textSecondary;
+    @include font($primaryFont, 12, normal, normal, 24);
+    @include transitionsall;
+
+    @include hover {
+      color: $headingText;
+    }
+  }
+
+  .submitbox {
+    margin-top: size(8);
+    @include flex-center-column;
+    gap: size(16);
+    text-align: center;
+
+    .btn-submit {
+      @include w100;
+      @include radius(10);
+      @include setBgColor($primary, $white);
+      height: size(48);
+      padding: size(12);
+      @include flex-center;
+      @include font($primaryFont, 14, medium, normal, 24);
+      letter-spacing: size(-0.09);
+      text-align: center;
+    }
+
+    .authtext {
+      @include flex-center;
+      gap: size(5);
+      color: $headingText;
+      @include font($primaryFont, 14, normal, normal, 24);
+      letter-spacing: size(-0.09);
+
+      .authlink {
+        color: $primary;
+        @include font($primaryFont, 14, medium, normal, 24);
+        letter-spacing: size(-0.09);
+        @include transitionsall;
+
+        @include hover {
+          text-decoration: underline;
+        }
+      }
+
+      .btn-resend {
+        color: $primary;
+        @include font($primaryFont, 14, medium, normal, 24);
+        letter-spacing: size(-0.09);
+        text-decoration: underline;
+        @include transitionsall;
+
+        @include hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .backlink {
+      @include flex-center-vert;
+      gap: size(5);
+
+      span {
+        color: $headingText;
+        @include font($primaryFont, 14, normal, normal, 24);
+        letter-spacing: size(-0.09);
+      }
+
+      @include hover {
+        span {
+          color: $primary;
+
+          svg {
+            path {
+              stroke: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/**=======================================================**
+                  AUTHENTICATIONS END
+**=======================================================**/

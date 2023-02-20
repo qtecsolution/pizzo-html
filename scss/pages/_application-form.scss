@@ -1,0 +1,229 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.form-builder {
+    
+    .configure {
+        padding-left: size(20);
+        &-header {
+             @include border-single(bottom,solid,1,$headerborder); 
+             padding: size(10) size(0);
+            h3 {
+            @include font($primaryFont,18,medium,normal,24);
+           
+            @include breakpoint(tab992) {
+            @include font($primaryFont,20,medium,normal,24);
+
+            }
+            }
+        }
+        &-body {
+            padding-top: size(10);
+        }
+    }
+
+    .selectfield {
+        padding-left: size(20);
+        padding: size(10) size(20);
+        &-header {
+            h3 {
+                @include font($primaryFont,14,medium,normal,20);
+                padding-bottom: size(20);
+                @include breakpoint(tab992) {
+                @include font($primaryFont,16,medium,normal,20);
+    
+                }
+            }
+        }
+        &-body {
+
+        }
+    }
+ .buttons-wrapper {
+    display: none;
+    display: grid;
+    gap: size(10);
+    grid-template-columns: 1fr 1fr;
+    @include breakpoint(tab992) {
+        gap: size(6);
+    }
+    @include breakpoint(desktop1400) {
+        gap: size(10);
+        @include font($primaryFont,12,semibold,normal,12); 
+
+    }
+}
+}
+
+.applicationform {
+    min-height: 100vh;
+    @include border-single(right,solid,1,$headerborder); 
+
+   &.offcanvasform {
+    border-right: none;
+   }
+        &-header {
+            padding: size(12) size(12);
+            @include flex-between;
+            align-items: center;
+            @include breakpoint(tab992) {
+            padding: size(20) size(20);
+            &.header-offcanvas {
+                @include flex-column;
+                align-items: flex-start;
+                @include border-single(bottom,solid,1,$headerborder); 
+
+
+
+            }
+            }
+            .title {
+                color: $headingText;
+                @include font($primaryFont, 18, medium, normal, 24);
+
+                @include breakpoint(mobile768) {
+                    @include font($primaryFont, 22, medium, normal, 28);
+
+                }
+               
+            }
+        }
+
+        &-body {
+            .col-wrapper {
+                @include border-single(bottom,solid,1,$headerborder);
+                padding: size(24) size(0);
+                margin-right: size(14)
+            }
+            .groupfield-btn {
+                @include flex;
+                gap: size(10);
+                padding: size(10) size(0);
+                cursor: pointer;
+                @include w100;
+                @include font($primaryFont, 14, medium, normal, 20);
+                color: $headingText;
+                @include breakpoint(tab992) {
+
+                }
+
+            } 
+
+            .groupfield {
+                @include border(solid,1,$primary);
+                @include radius(10);
+                margin-right: size(10);
+                padding: size(20);
+                &-header {
+                    @include flex-between;
+                    flex-wrap: wrap;
+                    gap: size(14);
+                    @include border-single(bottom,solid,1,$headerborder);
+                    padding-bottom: size(20);
+                   
+                    .left {
+                        @include flex;
+                        align-items: center;
+                        gap: size(10);
+                        .groupfield-input {
+                            background:#F7F7FA;
+                            padding: size(10) size(14);
+                            @include radius(8);
+                            @include border(solid,1,$headerborder);
+                            width:100%;
+                        }
+                    }
+
+                    .right {
+                        @include flex;
+                        align-items: center;
+                        gap: size(10);
+                        flex-wrap: wrap;
+                    }
+                }
+
+                &-body {
+                    @include flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    min-height: size(100);
+
+                    .options {
+                        padding: size(20) size(0);
+                        @include flex;
+                        flex-wrap: wrap;
+                        gap: size(10);
+                    }
+                }
+            }
+
+           
+        } 
+      
+} 
+
+.darkmode {
+    .applicationform {
+        border-color: $textPrimary;
+            &-header {
+                @include breakpoint(tab992) {
+                &.header-offcanvas {
+                  
+                    border-color: $textPrimary;
+    
+                }
+                }
+                .title {
+                    color: $white;       
+                      
+                }
+            }
+    
+            &-body {
+                .col-wrapper {
+                    border-color: $textPrimary;
+                    
+                }
+                .groupfield-btn {
+                    color: white;
+                    svg {
+                        path {
+                            stroke: white;
+                        }
+                    }
+    
+                } 
+    
+                .groupfield {
+                    @include border(solid,1,$primary);
+                   
+                    &-header {
+                       border-color: $textSecondary;
+                        .left {
+                           
+                            .groupfield-input {
+                                background:#F7F7FA;
+                             
+                            }
+                        }
+    
+                       
+                    }
+    
+                    &-body {
+                     
+    
+                        .options {
+                          
+                        }
+                    }
+                }
+    
+               
+            } 
+          
+    } 
+          
+    } 
+
+

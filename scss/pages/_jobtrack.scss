@@ -1,0 +1,487 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.jobtrack {
+  &-info {
+    @include flex-center-column;
+    gap: size(20);
+  }
+
+  &-header {
+    .logo {
+      @include square(80);
+      @include flex-center;
+      overflow: hidden;
+
+      @include breakpoint(tab992) {
+        @include square(100);
+      }
+
+      @include breakpoint(desktop1400) {
+        @include square(138);
+      }
+
+      img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &-body {
+    @include flex-center-column;
+    gap: size(20);
+
+    .title {
+      color: $headingText;
+      font-size: size(24);
+      font-weight: 600;
+      letter-spacing: size(-0.69);
+      text-align: center;
+
+      @include breakpoint(tab992) {
+        font-size: size(32);
+      }
+    }
+
+    .trackform {
+      @include w100;
+      @include flex-column;
+      gap: size(20);
+    
+      .inputbox {
+        @include flex-column;
+        gap: size(12);
+        @include w100;
+
+        .inputlabel {
+          color: $headingText;
+          font-size: size(14);
+          font-weight: 600;
+          text-align: left;
+        }
+  
+        .inputfield {
+          @include w100;
+          @include setBgColor($bodybg, $headingText);
+          @include border(solid, 1, $headerborder);
+          @include radius(8);
+          font-size: size(14);
+          font-weight: 400;
+          padding: size(12.5) size(16);
+          @include transitionsall;
+  
+          &:focus {
+            border-color: $primary;
+            background: transparent;
+          }
+        }
+      }
+  
+      .submitbox {
+        @include w100;
+
+        .btn-submit {
+          @include w100;
+          @include setBgColor($primary, $white);
+          @include radius(8);
+          @include flex-center;
+          font-size: size(12);
+          font-weight: 600;
+          padding: size(12) size(30);
+          text-align: center;
+          @include transitionsall;
+  
+          @include hover {
+            @include setBgColor(darken($primary, 10%), $white);
+          }
+        }
+      }
+    }
+  }
+
+  .trackinfo {
+    @include flex-center-column;
+    gap: size(20);
+    @include w100;
+
+    &-header {
+      @include flex-center-column;
+      gap: size(10);
+
+      .title {
+        color: $headingText;
+        font-size: size(16);
+        font-weight: 500;
+      }
+
+      .tracklist {
+        @include list-horizontal;
+        justify-content: center;
+        gap: size(12);
+
+        &-item {
+          @include flex-center-vert;
+          gap: size(5);
+
+          .icon {
+            @include square(16);
+            @include flex-center;
+            overflow: hidden;
+
+            svg {
+              @include wh100;
+            }
+          }
+
+          .text {
+            color: $textSecondary;
+            font-size: size(12);
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &-body {
+      @include flex-center-column;
+      gap: size(20);
+      @include w100;
+
+      .desktop-track {
+        @include w100;
+        @include flex-center-vert;
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: size(30);
+          left: 0;
+          right: 0;
+          margin-inline: auto;
+          width: calc(100% - size(120));
+          height: size(1);
+          @include border-single(bottom, dashed, 1, $checkborder);
+          z-index: 1;
+
+          @include breakpoint(desktop1200) {
+            width: calc(100% - size(130));
+          }
+        }
+
+        .mytrack {
+          width: calc(100% / 6);
+
+          .mytrackinfo {
+            @include flex-center-column;
+            gap: size(16);
+            position: relative;
+            z-index: 10;
+
+            &-header {
+              background: $offcanvasbg;
+              filter: $dropshadow-1;
+              @include radius(100);
+              @include flex-center;
+              padding: size(8) size(12);
+              opacity: 0;
+              visibility: hidden;
+
+              @include breakpoint(desktop1200) {
+                padding: size(8) size(16);
+              }
+
+              .title {
+                color: $headingText;
+                font-size: size(10);
+                font-weight: 500;
+                text-align: center;
+
+                @include breakpoint(desktop1200) {
+                  font-size: size(12);
+                }
+              }
+            }
+            
+            &-body {
+              background: $checkborder;
+              @include flex-center;
+              @include circle;
+
+              .circlebox {
+                background: $white;
+                @include circle;
+              }
+            }
+          }
+
+          &:nth-child(1) {
+            .mytrackinfo {
+              &-body {
+                @include square(10);
+  
+                .circlebox {
+                  @include square(4);
+                }
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            .mytrackinfo {
+              &-body {
+                @include square(20);
+  
+                .circlebox {
+                  @include square(8);
+                }
+              }
+            }
+          }
+
+          &:nth-child(3) {
+            .mytrackinfo {
+              &-body {
+                @include square(30);
+  
+                .circlebox {
+                  @include square(12);
+                }
+              }
+            }
+          }
+
+          &:nth-child(4) {
+            .mytrackinfo {
+              &-body {
+                @include square(40);
+  
+                .circlebox {
+                  @include square(16);
+                }
+              }
+            }
+          }
+
+          &:nth-child(5) {
+            .mytrackinfo {
+              &-body {
+                @include square(50);
+  
+                .circlebox {
+                  @include square(20);
+                }
+              }
+            }
+          }
+
+          &:nth-child(6) {
+            .mytrackinfo {
+              &-body {
+                @include square(60);
+  
+                .circlebox {
+                  @include square(24);
+                }
+              }
+            }
+          }
+
+          &.active {
+            .mytrackinfo {
+              &-header {
+                opacity: 1;
+                visibility: visible;
+              }
+
+              &-body {
+                background: $primary;
+              }
+            }
+          }
+        }
+      }
+
+      .mobile-track {
+        @include w100;
+        @include flex-center-column;
+        position: relative;
+        gap: size(16);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: size(30);
+          width: size(1);
+          height: 90%;
+          @include border-single(left, dashed, 1, $checkborder);
+          z-index: 1;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          @include breakpoint(desktop1200) {
+            width: calc(100% - size(130));
+          }
+        }
+
+        .mytrack {
+          .mytrackinfo {
+            @include flex-center-vert;
+            gap: size(16);
+            position: relative;
+            z-index: 10;
+
+            &-header {
+              background: $offcanvasbg;
+              filter: $dropshadow-1;
+              @include radius(100);
+              @include flex-center;
+              padding: size(8) size(12);
+              opacity: 0;
+              visibility: hidden;
+
+              @include breakpoint(desktop1200) {
+                padding: size(8) size(16);
+              }
+
+              .title {
+                color: $headingText;
+                font-size: size(10);
+                font-weight: 500;
+                text-align: center;
+
+                @include breakpoint(desktop1200) {
+                  font-size: size(12);
+                }
+              }
+            }
+            
+            &-body {
+              background: $checkborder;
+              @include flex-center;
+              @include circle;
+
+              .circlebox {
+                background: $white;
+                @include circle;
+              }
+            }
+          }
+
+          &:nth-child(1) {
+            .mytrackinfo {
+              &-body {
+                @include square(10);
+  
+                .circlebox {
+                  @include square(4);
+                }
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            .mytrackinfo {
+              &-body {
+                @include square(20);
+  
+                .circlebox {
+                  @include square(8);
+                }
+              }
+            }
+          }
+
+          &:nth-child(3) {
+            .mytrackinfo {
+              &-body {
+                @include square(30);
+  
+                .circlebox {
+                  @include square(12);
+                }
+              }
+            }
+          }
+
+          &:nth-child(4) {
+            .mytrackinfo {
+              &-body {
+                @include square(40);
+  
+                .circlebox {
+                  @include square(16);
+                }
+              }
+            }
+          }
+
+          &:nth-child(5) {
+            .mytrackinfo {
+              &-body {
+                @include square(50);
+  
+                .circlebox {
+                  @include square(20);
+                }
+              }
+            }
+          }
+
+          &:nth-child(6) {
+            .mytrackinfo {
+              &-body {
+                @include square(60);
+  
+                .circlebox {
+                  @include square(24);
+                }
+              }
+            }
+          }
+
+          &.active {
+            .mytrackinfo {
+              &-header {
+                opacity: 1;
+                visibility: visible;
+              }
+
+              &-body {
+                background: $primary;
+              }
+            }
+          }
+        }
+      }
+
+      .info {
+        @include flex-center;
+        text-align: center;
+
+        &-text {
+          color: $textPrimary;
+          font-size: size(14);
+          font-weight: 400;
+
+          .link {
+            color: $primary;
+            font-size: size(14);
+            font-weight: 500;
+            text-decoration: underline;
+            @include transitionsall;
+
+            @include hover {
+              color: $blue;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

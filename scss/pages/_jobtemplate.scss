@@ -1,0 +1,331 @@
+@use "../global" as *;
+@use "../partials/" as *;
+
+.templateheader {
+  @include flex-center-between;
+  height: size(60);
+  background: $white;
+  @include border-single(bottom, solid, 1, $headerborder);
+  padding-left: size(14);
+
+  @include breakpoint(mobile768) {
+    padding-left: size(24);
+  }
+
+  .btn-back {
+    @include flex-center-vert;
+
+    .icon {
+      @include square(24);
+      @include flex-center;
+      overflow: hidden;
+    }
+
+    .text {
+      color: $textPrimary;
+      font-size: size(16);
+
+      @include breakpoint(mobile768) {
+        font-size: size(18);
+      }
+    }
+
+    @include hover {
+      .icon {  
+        svg {
+          @include wh100;
+  
+          path {
+            stroke: $darkText;
+          }
+        }
+      }
+
+      .text {
+        color: $darkText;
+      }
+    }
+  }
+
+  .btn-link {
+    width: size(180);
+    height: size(60);
+    @include setBgColor($primary, $white);
+    @include flex-center;
+    font-size: size(16);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    @include transitionsall;
+
+    @include breakpoint(mobile768) {
+      font-size: size(18);
+    }
+    
+    @include hover {
+      @include setBgColor(darken($primary, 10%), $white);
+    }
+  }
+}
+
+.templatemain {
+  background: $white;
+  position: relative;
+  min-height: calc(100vh - size(60));
+  padding: size(40) 0;
+
+  @include breakpoint(tab992) {
+    padding: size(80) 0;
+  }
+
+  &-content {
+    @include flex-column;
+    gap: size(32);
+  
+    @include breakpoint(tab992) {
+      gap: size(48);
+    }
+  }
+
+  &-top {
+    @include flex-column;
+    gap: size(60);
+  
+    @include breakpoint(tab992) {
+      gap: size(80);
+    }
+
+    .topinfo {
+      @include flex-column;
+      gap: size(48);
+
+      .logo {
+        @include square(80);
+        @include flex-center;
+        @include circle;
+        margin-inline: auto;
+        overflow: hidden;
+  
+        @include breakpoint(tab992) {
+          @include square(100);
+        }
+  
+        img {
+          max-width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .info {
+        @include flex-center;
+        text-align: center;
+  
+        &-text {
+          color: $headingText;
+          font-size: size(14);
+    
+          @include breakpoint(mobile768) {
+            font-size: size(16);
+          }
+        }
+      }
+    }
+
+    .details {
+      @include flex-center-column;
+      gap: size(32);
+      text-align: center;
+      @include w100;
+  
+      @include breakpoint(tab992) {
+        gap: size(48);
+      }
+
+      .logo {
+        @include square(80);
+        @include flex-center;
+        @include circle;
+        margin-inline: auto;
+        overflow: hidden;
+  
+        @include breakpoint(tab992) {
+          @include square(100);
+        }
+  
+        img {
+          max-width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-title {
+        color: $headingText;
+        font-size: size(16);
+        font-weight: 500;
+
+        @include breakpoint(mobile768) {
+          font-size: size(24);
+        }
+      }
+
+      .detailslist {
+        @include list-horizontal;
+        gap: size(8);
+        flex-wrap: wrap;
+
+        @include breakpoint(mobile768) {
+          gap: size(14);
+          flex-wrap: nowrap;
+        }
+
+        @include breakpoint(tab992) {
+          gap: size(20);
+        }
+
+        &-item {
+          @include flex-center-vert;
+          gap: size(6);
+          justify-content: center;
+
+          .icon {
+            @include square(16);
+            @include flex-center;
+            overflow: hidden;
+            
+            svg {
+              @include wh100;
+            }
+          }
+
+          .text {
+            color: $textPrimary;
+            font-size: size(14);
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .job-thumbnail {
+        @include w100;
+        height: size(190);
+        @include radius(10);
+        @include flex-center;
+        overflow: hidden;
+  
+        @include breakpoint(mobile768) {
+          height: size(240);
+        }
+      
+        @include breakpoint(tab992) {
+          height: size(290);
+        }
+      
+        @include breakpoint(desktop1200) {
+          height: size(360);
+        }
+      
+        img {
+          @include wh100;
+          object-fit: cover;
+        }
+      }
+
+      .descriptions {
+        .text {
+          color: $headingText;
+          font-size: size(14);
+          text-align: left;
+    
+          @include breakpoint(mobile768) {
+            font-size: size(16);
+          }
+        }
+      }
+    }
+  }
+  
+  &-down {
+    @include flex-column;
+    gap: size(32);
+
+    .downdetail {
+      @include flex-column;
+      gap: size(32);
+
+      .downinfo {
+        @include flex-column;
+        gap: size(24);
+      
+        @include breakpoint(mobile768) {
+          gap: size(32);
+        }
+  
+        &-header {
+          .title {
+            color: $darkText;
+            font-size: size(20);
+            font-weight: 400;
+          }
+        }
+  
+        &-body {
+          .infolist {
+            padding-left: size(16);
+            @include flex-column;
+            gap: size(8);
+  
+            &-item {
+              color: $headingText;
+              font-size: size(14);
+              text-align: left;
+        
+              @include breakpoint(mobile768) {
+                font-size: size(16);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .info {
+      @include flex-center;
+      text-align: left;
+
+      &-text {
+        color: $headingText;
+        font-size: size(14);
+  
+        @include breakpoint(mobile768) {
+          font-size: size(16);
+        }
+      }
+    }
+  }
+
+  .righticon,
+  .lefticon {
+    position: absolute;
+    display: none;
+
+    @include breakpoint(tab992) {
+      @include flex-center;
+    }
+  }
+
+  .righticon {
+    top: 0;
+    right: 0;
+  }
+
+  .lefticon {
+    left: 0;
+    top: 50%;
+    @include translateY(-50%);
+  }
+}
+
+#mobile_code {
+  max-width: 100%;
+}

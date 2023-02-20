@@ -1,0 +1,12 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+
+
+.progress-wrapper {
+    progress {
+        width: size(80);
+        accent-color: $success;
+    }
+}
+

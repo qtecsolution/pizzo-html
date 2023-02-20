@@ -1,0 +1,207 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+.appmenu {
+  background: $white;
+  box-shadow: $box-shadow-1;
+  @include border-single(top, solid, 1, $headerborder);
+  @include flex-center-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  @include w100;
+
+  @include breakpoint(tab992) {
+    display: none;
+  }
+
+  .applist {
+    @include list-horizontal;
+    @include w100;
+
+    &-item {
+      position: relative;
+      width: calc(100% / 5);
+      padding: size(11) size(4);
+
+      &:hover:not(.active) {
+        .applist-link {
+          .icon {
+            .fillicon {
+              path {
+                fill: $primary;
+              }
+            }
+            .strokeicon {
+              path {
+                stroke: $primary;
+              }
+            }
+          }
+
+          .text {
+            color: $primary;
+          }
+        }
+      }
+
+      &.active {
+        .applist-link {
+          .icon {
+            .fillicon {
+              path {
+                fill: $primary;
+              }
+            }
+            .strokeicon {
+              path {
+                stroke: $primary;
+              }
+            }
+          }
+
+          .text {
+            color: $primary;
+          }
+        }
+      }
+
+      .mobdropdown {
+        position: absolute;
+        bottom: calc(100% + size(1));
+        right: size(8);
+        background: $white;
+        width: size(140);
+        display: none;
+        @extend %animation;
+        @extend %slideUpIn;
+
+        &-link {
+          @include border-single(bottom, solid, 1, $headerborder);
+          @include flex-center-vert;
+          gap: size(8);
+          padding: size(8) size(16);
+          @include transitionsbackground;
+
+          .icon {
+            @include square(18);
+            @include flex-center;
+            overflow: hidden;
+
+            .fillicon {
+              path {
+                fill: $headingText;
+              }
+            }
+
+            .strokeicon {
+              path {
+                stroke: $headingText;
+              }
+            }
+
+            svg {
+              @include wh100;
+            }
+          }
+
+          .text {
+            color: $headingText;
+            @include font($primaryFont, 10, medium, normal, 14);
+          }
+
+          &:hover:not(.active) {
+            background: lighten($textSecondary, 32%);
+            .icon {
+              .fillicon {
+                path {
+                  fill: $primary;
+                }
+              }
+              .strokeicon {
+                path {
+                  stroke: $primary;
+                }
+              }
+            }
+
+            .text {
+              color: $primary;
+            }
+          }
+
+          &.active {
+            background: lighten($textSecondary, 32%);
+
+            .icon {
+              .fillicon {
+                path {
+                  fill: $primary;
+                }
+              }
+              .strokeicon {
+                path {
+                  stroke: $primary;
+                }
+              }
+            }
+
+            .text {
+              color: $primary;
+            }
+          }
+        }
+
+        &-item {
+          &:last-of-type {
+            .mobdropdown-link {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+
+      @include hover {
+        .mobdropdown {
+          @include list-vertical;
+        }
+      }
+    }
+
+    &-link {
+      @include flex-center-column;
+      gap: size(4);
+
+      .icon {
+        @include square(20);
+        @include flex-center;
+        overflow: hidden;
+
+        .fillicon {
+          path {
+            fill: $headingText;
+          }
+        }
+        .strokeicon {
+          path {
+            stroke: $headingText;
+          }
+        }
+
+        svg {
+          @include wh100;
+        }
+      }
+
+      .text {
+        color: $headingText;
+        @include font($primaryFont, 10, medium, normal, 14);
+
+        @include breakpoint(mobile576) {
+          font-size: size(12);
+        }
+      }
+    }
+  }
+}

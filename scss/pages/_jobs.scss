@@ -1,0 +1,54 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.jobtab { 
+    padding: size(16);
+    @include breakpoint(tab992) {
+        padding: size(16) size(30);
+    }
+
+    &-header {
+        @include flex-between;
+        align-items: center;
+        .tab-buttons {
+           width: size(160);
+            @include breakpoint(mobile414) {
+               width: auto;
+                
+            }
+        }
+    }
+
+    &-body {
+        .jobcards {
+            @include flex-column;
+            gap: size(20);
+            &-header {
+                .active-title {
+                    color: $darkText;
+                    @include font($primaryFont,16,semibold,normal,22);
+                    @include breakpoint(moble414) {
+                        @include font($primaryFont,18,semibold,normal,22);
+                    }
+                    @include breakpoint(mobile576) {
+                        @include font($primaryFont,22,semibold,normal,22);
+
+                    }
+                }
+            }
+            &-body {
+
+            }
+        }
+        .cards {
+            @include flex;
+            gap: size(14);
+            flex-wrap: wrap;
+            justify-content: center;
+            @include breakpoint(tab992) {
+                justify-content: flex-start;
+            }
+            
+        }
+    }
+}

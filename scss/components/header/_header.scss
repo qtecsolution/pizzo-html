@@ -1,0 +1,327 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+.header {
+  background: $white;
+  @include border-single(bottom, solid, 1, $headerborder);
+  @include flex-center-between;
+  padding: size(0) size(16);
+
+  @include darkMode {
+    background: $darkPrimary;
+  }
+
+  @include breakpoint(tab992) {
+    padding: size(0) size(24) size(0) size(0);
+  }
+
+  @include darkMode {
+    background: $darkPrimary;
+  }
+
+  .logo {
+    width: size(125);
+    height: size(36);
+    @include flex-center;
+    overflow: hidden;
+
+    @include breakpoint(tab992) {
+      display: none;
+    }
+
+    img {
+      @include wh100;
+      object-fit: cover;
+    }
+  }
+
+  .collapsemenu {
+    display: none;
+
+    @include breakpoint(tab992) {
+      display: block;
+    }
+
+    .btn-toggle {
+      @include square(71);
+      @include border-single(right, solid, 1, $headerborder);
+      @include flex-center;
+      overflow: hidden;
+      padding: size(19);
+
+      svg {
+        @include wh100;
+      }
+
+      &.active {
+        svg {
+          @include rotateY(180);
+        }
+      }
+    }
+  }
+
+  &-nav {
+    .iconlist {
+      @include list-horizontal;
+
+      &-item {
+        cursor: pointer;
+        position: relative;
+        padding: size(15.5) size(5);
+
+        .btn-mode,
+        .btn-notification,
+        .btn-user {
+          @include circle;
+          @include square(40);
+          @include flex-center;
+        }
+
+        .btn-notification {
+          &.active {
+            svg {
+              .circle {
+                fill: $success;
+              }
+            }
+          }
+        }
+
+        .btn-mode,
+        .btn-user {
+          background: $headerborder;
+        }
+
+        .btn-mode {
+          .sun,
+          .moon {
+            @include square(18);
+            @include flex-center;
+
+            svg {
+              @include wh100;
+            }
+          }
+        }
+
+        .btn-user {
+          .usericon {
+            @include square(16);
+            @include flex-center;
+
+            svg {
+              @include wh100;
+            }
+          }
+        }
+        .notify,
+        .userdropdown {
+          position: absolute;
+          top: calc(100% + size(1));
+          right: 0;
+          background: $white;
+          box-shadow: $box-shadow-1;
+          display: none;
+          @extend %animation;
+          @extend %slideUpIn;
+        }
+
+        .notify {
+          width: size(280);
+
+          @include breakpoint(mobile768) {
+            width: size(320);
+          }
+
+          .notification {
+            @include flex-column;
+            background: $white;
+
+            &-header {
+              @include border-single(bottom, solid, 1, $headerborder);
+              @include flex-center-between;
+              padding: size(12) size(16);
+
+              .title {
+                color: $darkPrimary;
+                @include font($primaryFont, 11, medium, normal, 15.4);
+                text-transform: uppercase;
+                letter-spacing: size(1);
+              }
+
+              .btn-clear {
+                color: $textPrimary;
+                display: inline-block;
+                @include font($primaryFont, 11, normal, normal, 15.4);
+                @include transitionscolor;
+
+                @include hover {
+                  color: $danger;
+                }
+              }
+            }
+
+            &-body {
+              .emptynotification {
+                @include w100;
+                height: size(200);
+                @include flex-center;
+                text-align: center;
+
+                &-title {
+                  color: $darkPrimary;
+                  @include font($primaryFont, 13, normal, normal, 18.2);
+                }
+              }
+
+              .notificationlist {
+                max-height: size(316);
+                overflow-x: hidden;
+                overflow-y: scroll;
+                @include list-vertical;
+
+                &-link {
+                  @include flex;
+                  gap: size(10);
+                  padding: size(8) size(16);
+                  background: $white;
+                  @include border-single(bottom, solid, 1, $headerborder);
+
+                  .usericon {
+                    @include square(48);
+                    @include circle;
+                    @include flex-center;
+                    overflow: hidden;
+
+                    img {
+                      @include wh100;
+                      object-fit: cover;
+                    }
+                  }
+
+                  .details {
+                    width: calc(100% - size(48));
+                    @include flex-column;
+                    gap: size(4);
+
+                    .info {
+                      .name {
+                        color: $darkPrimary;
+                        @include font($primaryFont, 13, semibold, normal, 18.2);
+                      }
+
+                      .text {
+                        color: $textPrimary;
+                        @include font($primaryFont, 12, normal, normal, 16.8);
+                      }
+                    }
+
+                    .time {
+                      color: $textSecondary;
+                      @include font($primaryFont, 12, normal, normal, 16.8);
+                    }
+                  }
+
+                  @include hover {
+                    background: lighten($textSecondary, 32%);
+                  }
+                }
+
+                &-item {
+                  &:last-of-type {
+                    .notificationlist-link {
+                      border-bottom: 0;
+                    }
+                  }
+                }
+
+                &::-webkit-scrollbar {
+                  background: transparent;
+                  width: size(8);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                  background: $checkborder;
+                  @include radius(8);
+                }
+              }
+            }
+
+            &-footer {
+              background: $white;
+              @include border-single(top, solid, 1, $headerborder);
+              height: size(40);
+              @include flex-center;
+
+              .link {
+                color: $textPrimary;
+                @include font($primaryFont, 12, medium, normal, 16.8);
+                @include transitionscolor;
+
+                @include hover {
+                  color: $black;
+                }
+              }
+            }
+          }
+        }
+
+        .userdropdown {
+          width: size(130);
+
+          @include breakpoint(mobile768) {
+            width: size(150);
+          }
+
+          .userlist {
+            @include list-vertical;
+
+            &-link {
+              @include border-single(bottom, solid, 1, $headerborder);
+              padding: size(10) size(12);
+              @include flex-center-vert;
+              gap: size(8);
+              @include w100;
+              background: $white;
+
+              .icon {
+                @include square(16);
+                @include flex-center;
+                overflow: hidden;
+
+                svg {
+                  @include wh100;
+                }
+              }
+
+              .text {
+                color: $textPrimary;
+                @include font($primaryFont, 13, normal, normal, 18.2);
+              }
+
+              @include hover {
+                background: lighten($textSecondary, 30%);
+              }
+            }
+
+            &-item {
+              &:last-of-type {
+                .userlist-link {
+                  border-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+
+        @include hover {
+          .notify,
+          .userdropdown {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

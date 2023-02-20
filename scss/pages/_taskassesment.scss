@@ -1,0 +1,33 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.taskassesment {
+    &-header {
+        padding: size(20) size(0);
+        .title {
+            @include font($primaryFont,16,medium,normal,24); 
+            @include breakpoint(mobile576) {
+            @include font($primaryFont,20,medium,normal,24); 
+
+            }
+        }
+    } 
+    &-body {
+        .inputbox {
+            &.tasklink {
+                .tasklink-header {
+                    @include flex-between;
+                    align-items: center;
+
+                    .inputlabel {
+                        font-weight: 600;
+                    }
+                    span {
+
+                    }
+                }
+            }
+        }
+    }
+}
+

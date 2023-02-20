@@ -1,0 +1,38 @@
+@use '../../global' as *;
+@use '../../partials' as *;
+
+.textareabox {
+    @include flex-column;
+    gap: size(8);
+    position: relative;
+    .textarealabel {
+
+    }
+
+    .textareafield {
+        @include setBgColor($bodybg, $bodybg);
+        @include border(solid, 1, $headerborder);
+        @include font($primaryFont, 14, normal, normal, 17);
+        padding: size(10) size(16);
+        @include transitionsall;
+        @include radius(8);
+          color: $textPrimary;
+        &::placeholder {
+          color: $textSecondary;
+        }
+  
+        &:focus {
+          border-color: $primary;
+        }
+        
+    }
+}
+
+
+.darkmode {
+  .textareafield {
+    background: $lightDark;
+    border-color: rgb(102, 112, 133);
+  }
+}
+

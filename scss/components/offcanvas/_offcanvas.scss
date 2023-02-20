@@ -1,0 +1,760 @@
+@use "../../global"as *;
+@use "../../partials"as *;
+
+
+
+.offcanvas {
+  height: 100vh;
+  width: size(800) !important;
+
+
+  &.offcanvas-top {
+    border-bottom: 0;
+  }
+
+  &.offcanvas-bottom {
+    border-top: 0;
+  }
+
+  &.offcanvas-start {
+    border-right: 0;
+  }
+
+  &.offcanvas-end {
+    border-left: 0;
+  }
+
+  &.offcanvas-start {
+    border-right: 0;
+
+    @include breakpoint(mobile576) {
+      width: size(280);
+    }
+  }
+
+  &-header {
+    background-color: $offcanvasbg;
+
+    .offcanvas-title {
+      @include font($primaryFont, 18, medium, normal, 26);
+
+    }
+
+    .btn-close {
+      @include setBgColor($white, $textPrimary);
+      @include flex;
+      gap: size(10);
+      min-width: size(130);
+      @include border(solid, 1, $headerborder);
+      align-items: center;
+      @include font($primaryFont, 12, medium, normal, 12);
+      // @include radius(0);
+      // @include transitionsall;
+      // padding: 0;
+      // margin: 0;
+      // @include square(16);
+      // @include flex-center;
+      // overflow: hidden;
+
+      svg {
+        // @include wh100;
+      }
+
+      @include hover {
+        // opacity: 1;
+        // @include rotate(180);
+
+        // svg {
+        //   path {
+        //     stroke: $danger;
+        //   }
+        // }
+      }
+    }
+  }
+
+  &-body {
+    margin: size(20);
+    @include border(solid, 1, $headerborder);
+    @include radius(10);
+
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: size(8);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      // background: darken($primary, 25%);
+      @include radius(8);
+    }
+  }
+
+  .arrowbtn {
+    @include square(40);
+    background: $white;
+    @include flex-center;
+    @include circle;
+    cursor: pointer;
+    position: absolute;
+    left: size(-24);
+    top: 50%;
+    @include border(solid, 1, $headerborder);
+    display: none;
+    @include breakpoint(tab992) {
+      display: flex;
+    }
+  }
+
+  .closebtn-mobile {
+    position: absolute;
+    top: size(6);
+    right: size(6);
+    @include breakpoint(tab992) {
+      display: none;
+    }
+  }
+
+
+}
+
+
+.applicant-offcanvas {
+  .offcanvas {
+
+    &-header {
+      background: $offcanvasbg;
+      @include flex-between;
+      align-items: center;
+
+      .header-left {
+
+        .title-icon {
+          @include flex;
+          gap: size(20);
+          flex-wrap: wrap;
+
+          .title {
+            color:$textPrimary;
+            @include font($textPrimary,12,medium,normal,16);
+          }
+
+          .stars {
+            @include flex;
+            align-items: center;
+            gap: size(4);
+          }
+        }
+      }
+
+      .header-right {
+
+        .right-buttons {
+          @include flex;
+          gap: size(10);
+          align-items: center;
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    &-body {
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      .offcanvas__info-cards {
+        padding: size(14) size(18);
+
+        @include breakpoint(mobile576) {
+          padding: size(25) size(30);
+
+        }
+
+        @include flex-column;
+        gap: size(20);
+      }
+
+      .resumebox {
+        @include border(solid,1,$headerborder);
+        margin: size(14) size(18);
+        @include radius(10);
+
+        @include breakpoint(mobile576) {
+          margin: size(25) size(30);
+
+        }
+
+        &-header {
+          @include flex-between;
+          @include border-single(bottom,solid,1,$headerborder);
+          padding: size(16) size(20);
+
+          .header-left {
+          
+            .title {
+              color: $headingText;
+              @include font($primaryFont,14,medium,normal,20);
+
+            }
+          }
+          .header-right {
+            @include flex-center-vert;
+            gap: size(10);
+            
+            span {
+             @include border(solid,1,$headerborder);
+             @include square(30);
+             @include flex-center;
+             @include radius(7);
+             @include transitionsbackground;
+              @include hover {
+                background: darken($white,10%);
+              }
+
+            }
+
+          }
+        }
+
+        &-body {
+
+          object {
+           @include w100;
+           background: transparent;
+           min-height: 100vh;
+           border: none;
+          }
+        }
+      }
+
+      .hiring-pipeline {
+        padding: size(14) size(18);
+
+        @include breakpoint(mobile576) {
+          padding: size(25) size(30);
+
+        }
+
+        .stages {
+          padding-bottom: size(10);
+
+          .stageMenu {
+            @include list-horizontal;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            white-space: nowrap;
+            gap: size(8);
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &-item {
+              padding: size(8) size(12);
+              @include radius(6);
+              background: #E8F2FF;
+
+              &.active {
+                background: $primary;
+                color: $white;
+              }
+            }
+
+            .arrow-icon {}
+
+          }
+        }
+      }
+
+      .eventlist {
+        padding: size(14) size(18);
+        @include flex-column;
+        gap: size(20);
+        @include breakpoint(mobile576) {
+          padding: size(25) size(30);
+
+        }
+
+        &-title {
+          color: $black;
+          @include font ($primaryFont, 14, medium, normal, 12);
+
+        }
+
+        .events {
+
+          .events-wrapper {
+            @include flex-column;
+            gap: size(20);
+            .event {
+              @include flex-column;
+              gap: size(18);
+
+              &-header {
+                color: $textPrimary;
+                @include font ($primaryFont, 12, normal, normal, 20);
+
+              }
+
+              &-body {
+                @include border(solid, 1, $headerborder);
+                border-left: size(10) solid $blue;
+                padding-block: size(18);
+                @include radius(10);
+                @include transitionsall;
+
+                .innerbox {
+                  @include flex-column;
+                  gap: size(14);
+                  padding-left: size(16);
+
+                  .delete-icon {
+                    svg {
+                     
+                      @include hover {
+                        path {
+                          @include transitionsall;
+                          stroke :$danger;
+                        }
+                      }
+                    }
+                  }
+                  &-header {
+
+                    color: $headingText;
+                    @include font($primaryFont, 12, normal, normal, 16);
+
+                    @include breakpoint(mobile576) {
+                      @include font($primaryFont, 14, normal, normal, 16);
+
+                    }
+                  }
+
+                  &-info {
+                    @include flex;
+                    gap: size(8);
+
+                    .innerthumb {
+                      @include square(36);
+                      overflow: hidden;
+                      @include circle;
+
+                      img {
+                        @include wh100;
+                        object-fit: cover;
+                      }
+                    }
+                  }
+
+                  &-detail {
+                    @include flex-column;
+                    gap: size(3);
+
+                    .boldline {
+                      color: $headingText;
+                      @include font($primaryFont, 14, medium, normal, 16);
+
+                    }
+
+                    .info {
+                      @include font($primaryFont, 10, normal, normal, 16);
+                      color: $textPrimary;
+                    }
+                  }
+                }
+
+                &.border-l-yellow {
+                  border-left-color: $orange;
+                }
+                &.border-l-primary {
+                  border-left-color: $primary;
+                }
+                &.border-l-danger {
+                  border-left-color: $danger;
+                } 
+
+                @include hover {
+                  transform: translateY(size(-8));
+                }
+              }
+
+            }
+          }
+        }
+
+        .noevent {
+          padding: size(200) size(50);
+          text-align: center;
+
+          &-text {
+            @include font ($primaryFont, 12, normal, normal, 20);
+
+            @include breakpoint(mobile576) {
+              @include font ($primaryFont, 14, normal, normal, 20);
+
+            }
+
+            a {
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+
+.employee-offcanvas {
+  .offcanvas {
+
+    &-header {
+      background: $offcanvasbg;
+      @include flex-between;
+
+      .header-left {
+        @include flex;
+        gap: size(16);
+
+        .employee-thumb {
+          @include square(68);
+          overflow: hidden;
+          @include radius(10);
+
+          img {
+            @include wh100;
+            object-fit: cover;
+          }
+        }
+
+        .employee-info {
+
+          .designation {
+            @include font($primaryFont, 12, medium, normal, 18);
+            color: $textPrimary;
+
+            span {
+              color: $headingText;
+
+            }
+          }
+
+          .department {
+            @include font($primaryFont, 12, medium, normal, 18);
+            color: $textPrimary;
+
+            span {
+              color: $headingText;
+
+            }
+
+          }
+        }
+
+      }
+
+      .header-right {
+
+        .right-buttons {
+          @include flex;
+          gap: size(10);
+
+          .right-btn {
+            @include square(38);
+            @include border(solid, 1, $headerborder);
+            @include flex-center;
+            @include radius(10);
+            @include transitionsall;
+
+            @include hover {
+              background: darken($white, 10%);
+            }
+          }
+        }
+      }
+
+    }
+
+    &-body {
+      border: none;
+      padding: 0;
+      margin: 0;
+
+      .offcanvas__info-cards {
+        padding: size(14) size(18);
+
+        @include breakpoint(mobile576) {
+          padding: size(25) size(30);
+
+        }
+
+        @include flex-column;
+        gap: size(20);
+      }
+
+      .offcanvas__info-card {
+        border: none;
+      }
+    }
+  }
+}
+
+
+// ======================darkmode =======================================
+.darkmode {
+  .offcanvas {
+    background: $lightDark;
+
+
+    &-header {
+      background-color: $shade-1;
+
+      .offcanvas-title {
+        color: $white;
+      }
+
+      .btn-close {
+        @include setBgColor($lightDark, white);
+        border-color: $textPrimary;
+        align-items: center;
+        @include font($primaryFont, 12, medium, normal, 12);
+      }
+    }
+
+    &-body {
+      border-color: $textPrimary;
+    }
+
+    .arrowbtn {
+      background: $lightDark;
+      border-color: $headingText;
+    }
+  }
+
+  .employee-offcanvas {
+    .header-left {
+
+      .employee-info {
+
+        .designation {
+          color: darken($white, 20%);
+
+          span {
+            color: darken($white, 10%);
+
+          }
+        }
+
+        .department {
+          @include font($primaryFont, 12, medium, normal, 18);
+          color: darken($white, 20%);
+
+          span {
+            color: darken($white, 10%);
+
+          }
+
+        }
+      }
+
+    }
+
+    .header-right {
+
+      .right-buttons {
+        .right-btn {
+          border-color: $headingText;
+
+          svg {
+            path {
+              fill: darken($white, 30%);
+            }
+          }
+
+          @include hover {
+            background: darken($shade-1, 10%);
+          }
+        }
+
+
+      }
+    }
+  }
+
+  .applicant-offcanvas {
+    .offcanvas {
+
+      &-header {
+        .header-left {
+  
+          .title-icon {  
+            .title {
+              color:darken($white,30%);
+            }
+  
+          }
+        }
+  
+      
+      }
+      
+      &-body {
+       
+  
+        .resumebox {
+         border-color: $headingText;
+  
+          &-header {
+            @include flex-between;
+            border-color: $headingText;
+  
+            .header-left {
+            
+              .title {
+                color: darken($white,20%);
+  
+              }
+            }
+            .header-right {
+              
+              span {
+               border-color: $headingText;
+               @include square(30);
+               @include flex-center;
+               @include radius(7);
+               @include transitionsbackground;
+                @include hover {
+                  background: darken($white,10%);
+                }
+  
+              }
+  
+            }
+          }
+  
+          &-body {
+  
+            object {
+             @include w100;
+             background: transparent;
+             min-height: 100vh;
+             border: none;
+            }
+          }
+        }
+  
+        .hiring-pipeline {
+         
+  
+          .stages {
+            padding-bottom: size(10);
+  
+            .stageMenu {
+
+              &-item {
+                background: $textgray;
+                color: darken($white,10%);
+                &.active {
+                  background: $primary;
+                  color: $white;
+                }
+              }
+  
+              .arrow-icon {}
+  
+            }
+          }
+        }
+  
+        .eventlist {
+
+          &-title {
+            color: $white;
+          }
+  
+          .events {
+  
+            .events-wrapper {
+              .event {
+                &-header {
+                  color: darken($white,10%);
+                }
+  
+                &-body {
+                  @include border(solid, 1, $headingText);
+                  border-left: size(10) solid $blue; 
+                  .innerbox {
+
+                    .delete-icon {
+                      svg {
+                       
+                        @include hover {
+                          path {
+                            @include transitionsall;
+                            stroke :$danger;
+                          }
+                        }
+                      }
+                    }
+                    &-header {
+  
+                      color: darken($white,20%);
+                     
+                    }
+                    &-detail {
+
+                      .boldline {
+                        color: darken($white,5%);
+                      }
+  
+                      .info {
+                        color: darken($white,15%);
+                      }
+                    }
+                  }
+  
+                  &.border-l-yellow {
+                    border-left-color: $orange;
+                  }
+                  &.border-l-primary {
+                    border-left-color: $primary;
+                  }
+                  &.border-l-danger {
+                    border-left-color: $danger;
+                  } 
+  
+                  @include hover {
+                    transform: translateY(size(-8));
+                  }
+                }
+  
+              }
+            }
+          }
+  
+          .noevent {
+  
+            &-text {
+
+              color: darken($white,10%);
+              a {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+  
+  
+    }
+  }
+
+
+
+
+}

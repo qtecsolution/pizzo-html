@@ -1,0 +1,377 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+.rightinfo {
+  @include flex-column;
+  gap: size(20);
+}
+
+.settingsform {
+  background: $white;
+  @include radius(10);
+  box-shadow: $box-shadow-1;
+  @include flex-column;
+  gap: size(20);
+  padding: size(16);
+  @include h100;
+
+  &-header {
+    @include border-single(bottom, solid, 1, $headerborder);
+    padding-bottom: size(16);
+  
+    .settingsform-title {
+      color: $headingText;
+      font-size: size(16);
+      font-weight: 600;
+    }
+
+    .titleinfo {
+      @include flex-center-vert;
+      gap: size(8);
+
+      .icon {
+        cursor: pointer;
+        @include flex-center;
+        @include square(13);
+  
+        svg {
+          @include wh100;
+          margin-top: size(2);
+        }
+      }
+    }
+
+    .rightcontent {
+      .btn-add {
+        color: $primary;
+        font-size: size(12);
+        font-weight: 500;
+        @include transitionsall;
+
+        @include hover {
+          color: darken($primary, 5%);
+        }
+      }
+    }
+  }
+
+  @include breakpoint(mobile768) {
+    padding: size(20);
+    gap: size(32);
+  }
+
+  &-body {
+    .inputbox {
+      @include flex-column;
+      gap: size(12);
+
+      .inputfield {
+        @include setBgColor($bodybg, $headingText);
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        font-size: size(14);
+        font-weight: 400;
+        padding: size(12.5) size(16);
+        @include transitionsall;
+
+        &:focus {
+          border-color: $primary;
+          background: transparent;
+        }
+      }
+    }
+
+    .selectbox {
+      @include flex-column;
+      gap: size(12);
+
+      .selectlabel {
+        color: $headingText;
+        font-size: size(14);
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .nice-select {
+        @include setBgColor($bodybg, $headingText);
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        padding: size(12.5) size(16);
+        height: size(44);
+        @include transitionsall;
+
+        .current {
+          font-size: size(14);
+          font-weight: 400;
+        }
+
+        .nice-select-dropdown {
+          .list {
+            .option {
+              font-size: size(12);
+              font-weight: 400;
+            }
+          }
+        }
+
+        &:focus {
+          border-color: $primary;
+          background: transparent;
+        }
+
+        &::after {
+          transform: rotate(0) translateY(40%) !important;
+        }
+
+        &.open {
+          &::after {
+            transform: rotateX(180deg) !important;
+          }
+        }
+      }
+    }
+
+    .settingtable {
+      background: $white;
+      @include border(solid, 1, $headerborder);
+      @include radius(8);
+      overflow: hidden;
+
+      .table {
+        margin: size(0);
+        
+        thead {
+          background: $bodybg;
+  
+          tr {
+            @include border-single(bottom, solid, 1, $headerborder);
+
+            th {
+              border: 0;
+              font-size: size(13);
+              font-weight: 400;
+              color: $textPrimary;
+            }
+          }
+        }
+  
+        tbody {
+          td {
+            vertical-align: middle;
+          }
+
+          td, th {
+            border: 0;
+          }
+
+          tr {
+            @include border-single(bottom, solid, 1, $headerborder);
+
+            &:last-of-type {
+              border-bottom: 0;
+            }
+          }
+  
+          .searchinputbox {
+            @include flex-center-vert;
+            
+            .buttonbox {
+              width: size(24);
+              @include flex-center;
+              overflow: hidden;
+              
+              .btn-search {
+                @include square(16);
+                @include flex-center;
+                overflow: hidden;
+  
+                svg {
+                  @include wh100;
+                }
+              }
+            }
+  
+            .searchboxinput {
+              width: calc(100% - size(24));
+  
+              .searchfield {
+                @include w100;
+                @include setBgColor($white, $headingText);
+                font-size: size(13);
+                font-weight: 400;
+                padding: size(4) size(0) size(4) size(8);
+                @include transitionsall;
+  
+                &::placeholder {
+                  color: $textSecondary;
+                }
+  
+                &:focus {
+                  &::placeholder {
+                    color: $headingText;
+                  }
+                }
+
+                
+              }
+            }
+          }
+  
+          .userinfo {
+            @include flex-center-vert;
+            gap: size(12);
+  
+            .thumbnail {
+              @include square(24);
+              @include circle;
+              @include flex-center;
+              overflow: hidden;
+  
+              img {
+                @include wh100;
+              }
+            }
+  
+            .username {
+              font-size: size(13);
+              font-weight: 400;
+              color: $textPrimary;
+            }
+          }
+  
+          .emailinfo {
+            .emailaddress {
+              font-size: size(13);
+              font-weight: 400;
+              color: $textPrimary;
+            }
+          }
+  
+          .roleinfo {
+            @include flex-center;
+  
+            .badgerole {
+              @include radius(100);
+              padding: size(5) size(10);
+              font-size: size(12);
+              font-weight: 500;
+              text-align: center;
+  
+              &.owner {
+                @include setBgColor($ownerbg, $headingText);
+              }
+  
+              &.user {
+                @include setBgColor($userbg, $headingText);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+ 
+.action {
+  @include flex-center;
+  min-width: size(60);
+
+  .btn-action {
+    @include square(16);
+    @include flex-center;
+    overflow: hidden;
+    
+    svg {
+      @include wh100;
+    }
+  }
+}
+
+.actions {
+  @include flex-center;
+  gap: size(8);
+  min-width: size(60);
+
+  .btn-tableaction {
+    @include square(16);
+    @include flex-center;
+    overflow: hidden;
+    
+    svg {
+      @include wh100;
+    }
+  }
+}
+
+.socialinfo {
+  background: $white;
+  @include radius(10);
+  box-shadow: $box-shadow-1;
+  @include flex-column;
+  gap: size(20);
+  padding: size(16);
+  @include h100;
+
+  @include breakpoint(mobile768) {
+    padding: size(20);
+    gap: size(32);
+  }
+
+  &-header {
+    @include border-single(bottom, solid, 1, $headerborder);
+    padding-bottom: size(16);
+  
+    .title {
+      color: $headingText;
+      font-size: size(16);
+      font-weight: 600;
+    }
+  }
+
+  &-body {
+    @include flex-column;
+    gap: size(20);
+    
+    .inputbox {
+      @include flex-column;
+      gap: size(12);
+
+      .inputfield {
+        @include setBgColor($bodybg, $headingText);
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        font-size: size(14);
+        font-weight: 400;
+        padding: size(12.5) size(16);
+        @include transitionsall;
+
+        &:focus {
+          border-color: $primary;
+          background: transparent;
+        }
+      }
+    }
+
+    .submitbox {
+      @include border-single(top, solid, 1, $headerborder);
+      margin: size(24) 0 0;
+      padding: size(24) 0 0;
+      @include flex-end;
+
+      .btn-submit {
+        @include setBgColor($primary, $white);
+        @include radius(8);
+        @include flex-center;
+        font-size: size(12);
+        font-weight: 600;
+        padding: size(12) size(30);
+        text-align: center;
+        @include transitionsall;
+
+        @include hover {
+          @include setBgColor(darken($primary, 10%), $white);
+        }
+      }
+    }
+  }
+}

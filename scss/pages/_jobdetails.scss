@@ -1,0 +1,382 @@
+@use "../global" as *;
+@use "../partials" as *; 
+
+
+.addnewjob {
+
+    &-content {}
+
+    &-header {
+        @include border-single(bottom, solid, 1, $headerborder);
+        padding-bottom: size(20);
+
+        .header-wrapper {
+            padding: size(14) size(14) size(0) size(14);
+            @include flex-between;
+
+
+            @include breakpoint(mobile576) {
+                padding: size(24) size(20) size(0) size(24);
+
+            }
+        }
+
+
+        .addnewjob-title {
+            color: $headingText;
+            @include font($primaryFont, 18, medium, normal, 24);
+
+            @include breakpoint(mobile768) {
+                @include font($primaryFont, 22, medium, normal, 28);
+
+            }
+        }
+
+        .buttons {
+            @include flex-column;
+            justify-content: center;
+            gap: size(4);
+            
+            @include breakpoint(mobile480) {
+                flex-direction: row;
+            }
+
+            @include breakpoint(mobile414) {
+                gap: size(10);
+            }
+        }
+    }
+    &-body {
+
+        padding: size(20);
+
+        .bg {
+            background: $white;
+            padding: size(20);
+            @include radius(7);
+
+        }
+
+        .job-steps {
+            @include border-single(bottom, solid, 1, $headerborder);
+
+            .wizard {
+                @include flex;
+                padding-bottom: size(20);
+                overflow-x: auto;
+
+                .item {
+                    background: $bodybg;
+                    display: inline-block;
+                    margin-right: size(8);
+                    min-width: 200px;
+                    outline: none;
+                    padding: 10px 40px 10px;
+                    position: relative;
+                    text-decoration: none;
+                    white-space: nowrap;
+                    flex: 1;
+                    @include flex;
+                    align-items: center;
+                    gap: size(10);
+
+
+
+                    .count {
+                        @include square(22);
+                        @include circle;
+                        @include flex-center;
+                        background: $checkborder;
+                        color: $white;
+                        @include font($primaryFont, 12, bold, normal, 15);
+                        flex-shrink: 0;
+                    }
+
+                    .title {
+                        color: $checkborder;
+                        @include font($primaryFont, 12, bold, normal, 15);
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+
+                    &.active {
+                        background: rgba(76, 111, 255, 0.05);
+
+                        &::after {
+                            border-left: 21px solid rgba(76, 111, 255, 0.05);
+                        }
+
+                        .title {
+                            color: $primary;
+                        }
+
+                        .count {
+                            background: $primary;
+                        }
+                    }
+
+                    &.completed {
+                        background: $primary;
+                        
+                        &::after {
+                            border-left: 20px solid $primary;
+                        }
+                        .title {
+                            color: $white;
+                        }
+                    }
+
+                    &::before {
+                        width: 0;
+                        height: 0;
+                        border-top: 20px inset transparent;
+                        border-bottom: 20px inset transparent;
+                        border-left: 20px solid #fff;
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        left: 0;
+                    }
+
+                    &::after {
+                        width: 0;
+                        height: 0;
+                        border-top: 20px inset transparent;
+                        border-bottom: 20px inset transparent;
+                        border-left: 20px solid $bodybg;
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        right: -20px;
+                        z-index: 2;
+                    }
+
+                    &:first-child {
+                        border-top-right-radius: 1px;
+                        border-bottom-right-radius: 1px;
+                        &:before {
+                            border: none;
+                        }
+                    }
+
+                    &:last-child {
+                        &:after {
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+        }
+
+        .jobform {
+            max-width: size(1100);
+            padding-top: size(20);
+
+            @include breakpoint(tab992) {
+                padding-top: size(30);
+            }
+
+            &-header {
+
+                @include flex-column;
+                gap: size(14);
+                padding-bottom: size(20);
+                @include border-single(bottom, solid, 1, $headerborder);
+
+                @include breakpoint(tab992) {
+                    gap: size(20);
+                }
+
+                .title {
+                    color: $headingText;
+                    @include font($primaryFont, 18, medium, normal, 24);
+
+                    @include breakpoint(mobile768) {
+                        @include font($primaryFont, 22, medium, normal, 28);
+
+                    }
+
+                }
+
+                .upload-text {
+                    color: $headingText;
+                    @include font($primaryFont, 14, semibold, normal, 14);
+
+                    span {
+                        @include font($primaryFont, 12, normal, normal, 14);
+
+                    }
+                }
+
+                .upload-thumb {
+
+                    .headerimage {
+                        @include font($primaryFont, 14, semibold, normal, 14);
+                        color: $textSecondary;
+                        cursor: pointer;
+                    }
+                }
+
+                .uploaded {
+                    .headerimage-thumb {
+                        @include w100;
+                        // max-height: size(360);
+                        height: auto;
+                        overflow: hidden;
+                        @include radius(10);
+
+                        img {
+                            // @include wh100;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .buttons {
+                        @include flex-column;
+                        gap: size(8);
+
+                        label {
+                            @include w100;
+                            text-align: center;
+                        }
+                    }
+                }
+
+
+            }
+
+
+
+            &-body {
+                .nice-select {
+                    @include w100;
+                }
+
+                .tox-tinymce {
+                    border-color: $headerborder !important;
+                    border-width: size(1);
+                }
+            }
+           
+
+
+        } 
+
+        .line {
+            @include border-single(bottom, solid, 1, $headerborder);
+            margin-left: size(10);
+            margin-right: size(10);
+        }
+
+    }
+}
+
+
+
+.darkmode {
+    .addnewjob { 
+        &-header {
+            border-color: $lightDark;
+            .addnewjob-title { 
+                color: $white;
+            }
+        }
+
+        &-body {
+            .bg {
+                background: #2e3542
+            }
+
+            .job-steps { 
+                border-color: lighten($lightDark, 10%);
+
+                .wizard { 
+                    .item {
+                        background: $darkPrimary;
+                       
+                        .count {
+                            background: $lightDark;
+                            color: $white;    
+                        }
+    
+                        .title {
+                            color: $checkborder;
+                           
+                        }
+    
+                        &.active {
+                            background: $primary;
+                            color: $white;
+    
+                            &::after {
+                                border-left: 21px solid $primary;
+                            }
+    
+                            .title {
+                                color: $white;
+                            }
+    
+                            .count {
+                                background: $white;
+                                color: $primary;
+                            }
+                        }
+    
+                        &::before {
+                          
+                            border-top: 20px inset transparent;
+                            border-bottom: 20px inset transparent;
+                            border-left: 20px solid #2e3542;
+                            position: absolute;
+                            content: '';
+                           
+                        }
+    
+                        &::after {
+                           
+                            border-top: 20px inset transparent;
+                            border-bottom: 20px inset transparent;
+                            border-left: 21px solid $darkPrimary;
+                           
+                           
+                          
+                        }
+    
+                        &:first-child {
+                            &:before {
+                                border: none;
+                            }
+                        }
+    
+                        &:last-child {
+                            &:after {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .jobform { 
+                &-header {
+                    border-color: lighten($lightDark, 10%);
+                }
+                &-body {
+                    .addnewjob-body .jobform-body .tox-tinymce { 
+                        border-color: red !important;
+                    }
+                }
+                .line {
+                    border-color: lighten($lightDark, 10%);
+                    
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,121 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.taskform {
+  @include flex-column;
+  gap: size(16);
+
+  .info {
+    &-text {
+      color: $textPrimary;
+      font-size: size(12);
+      font-weight: 500;
+      text-align: left;
+    }
+  }
+
+  .inputbox {
+    @include flex-column;
+    gap: size(12);
+
+    .inputlabel {
+      color: $headingText;
+      font-size: size(14);
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .inputfield {
+      @include setBgColor($bodybg, $headingText);
+      @include border(solid, 1, $headerborder);
+      @include radius(8);
+      font-size: size(14);
+      font-weight: 400;
+      padding: size(12.5) size(16);
+      @include transitionsall;
+
+      &:focus {
+        border-color: $primary;
+        background: transparent;
+      }
+    }
+  }
+
+  .submitbox {
+    margin-top: size(24);
+    @include flex-center;
+
+    .btn-submit {
+      @include setBgColor($primary, $white);
+      @include radius(8);
+      @include flex-center;
+      font-size: size(12);
+      font-weight: 600;
+      padding: size(12) size(30);
+      text-align: center;
+      @include transitionsall;
+      @include w100;
+
+      @include breakpoint(mobile576) {
+        width: size(400);
+      }
+
+      @include hover {
+        @include setBgColor(darken($primary, 10%), $white);
+      }
+    }
+  }
+}
+
+.submissionbox {
+  @include flex-center-column;
+  gap: size(24);
+
+  .icon {
+    @include square(100);
+    @include flex-center;
+    overflow: hidden;
+
+    @include breakpoint(mobile768) {
+      @include square(140);
+    }
+
+    @include breakpoint(tab992) {
+      @include square(186);
+    }
+
+    svg {
+      @include wh100;
+    }
+  }
+
+  .info {
+    @include flex-center-column;
+    gap: size(8);
+    text-align: center;
+  
+    &-text {
+      color: $textPrimary;
+      font-size: size(14);
+      font-weight: 500;
+
+      strong {
+        font-size: size(14);
+        color: $headingText;
+      }
+
+      .link {
+        font-size: size(14);
+        font-weight: 500;
+        color: $primary;
+        text-decoration: underline;
+        @include transitionsall;
+
+        @include hover {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

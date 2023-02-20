@@ -1,0 +1,192 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.hiringstage {
+    
+    &-header {
+        @include flex-between;
+        align-items: center;
+        padding: size(20) size(0);
+        @include breakpoint(tab992) {
+        padding: size(30) size(0);
+
+        }
+        .title {
+            @include font($primaryFont,16,medium,normal,24); 
+            @include breakpoint(mobile576) {
+            @include font($primaryFont,20,medium,normal,24); 
+
+            }
+        }
+    }
+
+    &-body {
+        .stages {
+            @include flex-column;
+            gap: size(20);
+            @include breakpoint(tab992) {
+             gap: size(30);
+             padding-left: size(24);
+                
+            }
+            .stage {
+                @include border-single(top,solid,3,$primary);
+                box-shadow: 0px 3px 4px rgba(102, 112, 133, 0.05);
+                padding: size(18);
+                @include radius(8);
+
+                .stage-content {
+                    @include flex-between; 
+                    .left {
+                        @include flex;
+                        gap: size(10);
+                        align-items: center;
+                        color: $headingText;
+                        @include font($primaryFont,16,medium,normal,20); 
+                    }
+                 
+
+                }
+
+            }
+        }
+
+        .addstage {
+            min-height: size(390);
+            margin-top: size(30);
+            @include border(solid,1,$primary);
+            @include radius(10);
+            padding: size(24);
+            @include flex-column;
+            gap: size(20);
+            @include breakpoint(tab992) {
+                margin-left: size(24);
+                   
+               }
+            &-header {
+                @include border-single(bottom,solid,1,$headerborder); 
+                padding-bottom: size(10);
+                @include flex-between;
+                .title {
+                    @include font($primaryFont,16,medium,normal,24); 
+                    @include breakpoint(mobile576) {
+                    @include font($primaryFont,20,medium,normal,24); 
+        
+                    }
+                }
+                .buttons {
+                    display: inline-flex;
+                    gap: size(10);
+                    align-items: center;
+                    flex-wrap: wrap;
+                    justify-content: flex-end;
+                    max-width: size(100);
+                    @include breakpoint(mobile480) {
+                        max-width: size(200);
+                    }
+                    .calcel-btn {
+                        @include border(solid,1,$headerborder);
+                    }
+
+                    
+                }
+                
+            }
+            &-body {
+        
+                .inputbox {
+                .inputlabel {
+                    font-size: size(12);
+                    @include breakpoint(mobile576) {
+                        font-size: size(14);
+                    }
+                } 
+                .inputfield {
+                    font-size: size(12);
+                    @include breakpoint(mobile576) {
+                        font-size: size(14);
+                    }
+                }
+                    input[type='color'] {
+                        @include w100;
+                        padding: 0;
+                        background:#f6f6f9;
+                       
+                    } 
+                    .colorpicker {
+
+                    }
+                    &.colorpicker {
+                        position: relative;
+                        input[type='color'] {
+                            @include w100;
+                            padding: 0;
+                            visibility: hidden;
+                            opacity: 0;
+                           
+                        } 
+                        input[type='text'] {
+                            margin-top: size(-34);
+                            padding-left: size(30);
+                        } 
+                        .drop-icon {
+                            position: absolute;
+                            left: size(8);
+                            top: 65%;
+                            transform: translateY(-35%);
+
+                        } 
+                        .paint-icon {
+                            position: absolute;
+                            right: size(8);
+                            top: 65%;
+                            transform: translateY(-35%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.darkmode {
+    .hiringstage {
+        &-header {
+            .title {
+                color: white;
+            }
+        }
+        .btn-addtask {
+            border-color:$textSecondary;
+        }
+        &-body {
+            .addstage { 
+                &-header {
+                    border-color: darken(white,70%);
+                  
+                }
+                .title {
+                    color: $white;
+                }
+            } 
+
+            .stages {
+                
+                .stage {
+                
+            
+                    .stage-content {
+                        .left {
+                            color: $white;
+                        }
+                     
+            
+                    }
+            
+                }
+            }
+        }
+    }
+} 
+
+

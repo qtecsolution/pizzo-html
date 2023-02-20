@@ -1,0 +1,350 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+.mytask {
+    .nav{
+        &.nav-tabs {
+            @include radius(8);
+            background: $headerborder;
+            padding: size(4) size(4);
+        }
+        &-item {
+
+        }
+        &-link {
+            padding: size(8) size(20);
+            border: none;
+            @include font($primaryFont,12,semibold,normal,20);
+            color: $headingText;
+            @include radius(8);
+            @include breakpoint(mobile768) {
+                padding: size(6) size(40);
+            }
+            &.active {
+                color: $headingText;
+            }
+        }
+    }
+}
+
+.jobtab {
+    @include flex-column;
+    gap: size(16);
+    .nav{
+        &.nav-tabs {
+
+            // padding: size(14) size(4);
+            border: none;
+            gap: size(20);
+        }
+        &-item {
+
+        }
+        &-link {
+          
+            border: none;
+            @include font($primaryFont,16,medium,normal,20);
+            color: $textSecondary;
+            @include flex;
+            gap: size(10);
+            padding: size(18) size(20);
+
+            .count {
+                padding: size(2) size(14);
+                background: $headerborder;
+                @include radius(25);
+               @include font($primaryFont,12,bold,normal,20);
+
+
+            }
+
+            @include breakpoint(mobile768) {
+                padding: size(18) size(20);
+            }
+            &.active {
+                color: $headingText;
+                @include border-single(bottom,solid,3,$primary);
+                background: transparent;
+                .count {
+                    background: $primaryLight;
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+.overview-tab {
+    .nav {
+        flex-wrap: nowrap;
+        padding: size(10) size(0);
+        align-items: center;
+        &-tabs {
+
+        }
+        &-item {
+            .nav-link {
+            padding: size(16);
+
+            }
+        }
+        &-link {
+            padding: size(8) size(20);
+            border: none;
+            @include font($primaryFont,16,medium,normal,20);
+            color: $textSecondary;
+            @include radius(0);
+            @include border-single(bottom,solid,3,transparent);
+            @include flex-center-vert;
+            gap: size(10);
+            @include breakpoint(mobile768) {
+                padding: size(6) size(40);
+            }
+
+            @include hover {
+                &:not(.active) {
+                  border-color: transparent;
+
+                }
+            }
+            &.active {
+                color: $headingText;
+                @include border-single(bottom,solid,3,$primary);
+                background-color: transparent;
+                .count {
+                    @include setBgColor($primaryLight,$primary);
+
+                }
+            }
+
+            .count {
+                height: size(18);
+                width: size(28);
+                @include radius(100);
+                @include setBgColor($headerborder,$textSecondary);
+                display: inline-block;
+                @include font($primaryFont,12,medium,normal,20);
+
+            }
+        }
+        .gap {
+            width: size(2);
+            height: size(32);
+            background: $checkborder;
+            margin: 0 size(20);
+        }
+    }
+}
+
+.applicant-tab {
+    .nav {
+        flex-wrap: nowrap;
+        padding: size(0);
+        padding-left: size(30);
+        align-items: center;
+        white-space: nowrap;
+        overflow-x: scroll;
+        @include hideScrollbar;
+        &-tabs {
+
+        }
+        &-item {
+            .nav-link {
+            padding: size(16);
+
+            }
+        }
+        &-link {
+            padding: size(8) size(20);
+            border: none;
+            @include font($primaryFont,14,medium,normal,20);
+            color: $textSecondary;
+            @include radius(0);
+            @include border-single(bottom,solid,3,transparent);
+            @include flex-center-vert;
+            gap: size(10);
+            @include breakpoint(mobile768) {
+                padding: size(6) size(40);
+                @include font($primaryFont,16,medium,normal,20);
+
+            }
+
+            @include hover {
+                &:not(.active) {
+                  border-color: transparent;
+
+                }
+            }
+            &.active {
+                color: $headingText;
+                @include border-single(bottom,solid,3,$primary);
+                background-color: transparent;
+                .count {
+                    @include setBgColor($primaryLight,$primary);
+
+                }
+            }
+
+            .count {
+                height: size(18);
+                width: size(28);
+                @include radius(100);
+                @include setBgColor($headerborder,$textSecondary);
+                display: inline-block;
+                @include font($primaryFont,12,medium,normal,20);
+
+            }
+        }
+        .gap {
+            width: size(2);
+            height: size(32);
+            background: $checkborder;
+            margin: 0 size(20);
+        }
+    }
+}
+
+
+.darkmode {  
+
+    .mytask {
+        .nav{
+            &.nav-tabs {
+                background: $darkPrimary;
+                border: none;
+            }
+            &-item {
+    
+            }
+            &-link {
+                color: darken($white,40%);
+               
+                &.active {
+                    color: $white;
+                    background: $lightDark;
+                }
+            }
+        }
+    }
+
+    .jobtab {
+       
+        .nav{
+           
+            &-link {
+                color: $textSecondary;
+    
+                .count {
+                    background: $headingText;
+                }
+    
+                &.active {
+                    color: $white;
+                    .count {
+                        background: $primary;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    .overview-tab {
+        .nav {
+            &-tabs {
+                border-color: $headingText;
+            }
+            &-item {
+                .nav-link {
+                 padding: size(16);
+                 color: darken($white,20%);
+    
+                }
+            }
+            &-link {
+                padding: size(8) size(20);
+                border: none;
+                @include font($primaryFont,16,medium,normal,20);
+                color: $textSecondary;
+                @include radius(0);
+                @include border-single(bottom,solid,3,transparent);
+                @include flex-center-vert;
+                gap: size(10);
+                @include breakpoint(mobile768) {
+                    padding: size(6) size(40);
+                }
+    
+                @include hover {
+                    &:not(.active) {
+                      border-color: transparent;
+    
+                    }
+                }
+                &.active {
+                    color: $white;
+                    @include border-single(bottom,solid,3,$primary);
+                    background-color: transparent;
+                    .count {
+                        @include setBgColor($primary,$white);
+                    }
+                }
+    
+                .count {
+                    @include setBgColor($headingText,$textSecondary);   
+                }
+            }
+            .gap {
+                background: $headingText;
+            }
+        }
+    }
+
+    .applicant-tab {
+        .nav {
+
+            &-tabs {
+                background-color: $headingText !important;
+                border-color: $headingText;
+            }
+            &-item {
+                .nav-link {
+                  padding: size(16);
+                }
+            }
+            &-link {
+                color: $textSecondary;
+                @include hover {
+                    &:not(.active) {
+                      border-color: transparent;
+    
+                    }
+                }
+                &.active {
+                    color: $white;
+                    @include border-single(bottom,solid,3,$primary);
+                    background-color: transparent;
+                    .count {
+                        @include setBgColor($primaryLight,$primary);
+    
+                    }
+                }
+    
+                .count {
+                    height: size(18);
+                    width: size(28);
+                    @include radius(100);
+                    @include setBgColor($headerborder,$textSecondary);
+                    display: inline-block;
+                    @include font($primaryFont,12,medium,normal,20);
+    
+                }
+            }
+            .gap {
+                width: size(2);
+                height: size(32);
+                background: $checkborder;
+                margin: 0 size(20);
+            }
+        }
+    }
+}

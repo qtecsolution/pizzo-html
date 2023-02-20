@@ -1,0 +1,198 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+.emailtemplate {
+  background: $white;
+  @include radius(10);
+  padding: size(20);
+
+  &-header {
+    @include flex-center-vert;
+    @include border-single(bottom, solid, 1, $headerborder);
+    padding-bottom: size(20);
+
+    .templatetitle {
+      color: $headingText;
+      font-size: size(16);
+      font-weight: 500;
+    }
+  }
+  
+  &-body {
+    @include flex-column;
+    gap: size(32);
+    padding: size(44) size(20) size(0);
+  
+    @include breakpoint(mobile768) {
+      padding: size(44) size(32) size(0);
+    }
+  
+    @include breakpoint(tab992) {
+      padding: size(44) size(64) size(0);
+    }
+
+    .logo {
+      @include square(80);
+      @include flex-center;
+      margin-inline: auto;
+      overflow: hidden;
+
+      @include breakpoint(mobile768) {
+        @include square(100);
+      }
+
+      img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .template-details {
+      background: $white;
+      @include border(solid, 1, $headerborder);
+      @include radius(30);
+      @include flex-column;
+      gap: size(32);
+      padding: size(24);
+
+      .info {
+        &-text {
+          color: $textPrimary;
+          font-size: size(16);
+          font-weight: 400;
+  
+          @include breakpoint(mobile768) {
+            font-size: size(18);
+          }
+  
+          @include breakpoint(tab992) {
+            font-size: size(20);
+          }
+        }
+      }
+
+      .mail-thumb {
+        @include w100;
+        height: size(190);
+        @include radius(15);
+        @include flex-center;
+        overflow: hidden;
+  
+        @include breakpoint(mobile768) {
+          height: size(240);
+        }
+      
+        @include breakpoint(tab992) {
+          height: size(290);
+        }
+      
+        img {
+          @include wh100;
+          object-fit: cover;
+        }
+      }
+
+      .maildetail {
+        @include flex-column;
+        gap: size(12);
+
+        .mailbody {
+          color: $textPrimary;
+          font-size: size(12);
+          font-weight: 400;
+
+          a {
+            color: $primary;
+            font-size: size(12);
+            font-weight: 400;
+            @include transitionsall;
+
+            @include hover {
+              color: $blue;
+            }
+          }
+        }
+
+        .mailsubmitbox {
+          @include flex-center;
+
+          .btn-track {
+            @include setBgColor($primary, $white);
+            @include radius(8);
+            @include flex-center;
+            font-size: size(12);
+            font-weight: 600;
+            padding: size(12) size(30);
+            text-align: center;
+            @include transitionsall;
+    
+            @include hover {
+              @include setBgColor(darken($primary, 10%), $white);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mailfooter {
+    padding-bottom: size(48);
+    @include flex-center-column;
+    gap: size(32);
+
+    @include breakpoint(tab992) {
+      padding-bottom: size(80);
+    }
+
+    &-header {
+      @include flex-center;
+
+      .logo {
+        width: size(125);
+        height: size(36);
+        @include flex-center;
+        overflow: hidden;
+  
+        img {
+          @include wh100;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &-body {
+      @include flex-center-column;
+      gap: size(20);
+
+      .title {
+        color: $textPrimary;
+        font-size: size(12);
+        font-weight: 500;
+      }
+
+      .social-list {
+        @include list-horizontal;
+        justify-content: center;
+        gap: size(12);
+
+        &-link {
+          background: $headerborder;
+          @include square(38);
+          @include circle;
+          @include flex-center;
+          overflow: hidden;
+
+          .icon {
+            @include square(14);
+            @include flex-center;
+            overflow: hidden;
+
+            svg {
+              @include wh100;
+            }
+          }
+        }
+      }
+    }
+  }
+}

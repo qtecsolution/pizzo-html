@@ -1,0 +1,31 @@
+@use '../global' as *;
+@use '../partials' as *;
+
+/**=======================================================**
+                  AUTHENTICATIONS START
+**=======================================================**/
+
+.auth {
+  min-height: 100vh;
+  @include flex-center;
+  padding: size(16);
+
+  @include breakpoint(mobile576) {
+    padding: size(0);
+  }
+
+  .authentication {
+    background: $white;
+    @include radius(16);
+    padding: size(24) size(24) size(32);
+    @include w100;
+
+    @include breakpoint(mobile576) {
+      width: size(400);
+    }
+  }
+}
+
+/**=======================================================**
+                  AUTHENTICATIONS END
+**=======================================================**/

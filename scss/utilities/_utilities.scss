@@ -1,0 +1,29 @@
+@use '../global' as *;
+@use '../partials' as *;
+
+.container {
+  @include w100;
+  padding-left: size(16);
+  padding-right: size(16);
+
+  @include breakpoint(mobile576) {
+    max-width: size(540);
+    margin-inline: auto;
+  }
+
+  @include breakpoint(mobile768) {
+    max-width: size(720);
+  }
+
+  @include breakpoint(tab992) {
+    max-width: size(960);
+  }
+
+  @include breakpoint(desktop1200) {
+    max-width: size(1140);
+  }
+
+  @include breakpoint(desktop1800) {
+    max-width: size(1400);
+  }
+}

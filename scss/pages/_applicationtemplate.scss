@@ -1,0 +1,255 @@
+@use "../global" as *;
+@use "../partials/" as *;
+
+.myapplicationform {
+  @include border(solid, 1, $headerborder);
+  @include radius(10);
+  padding: size(14);
+
+  @include breakpoint(mobile768) {
+    padding: size(24);
+  }
+
+  @include breakpoint(tab992) {
+    padding: size(32);
+  }
+
+  .accordion {
+    border: 0;
+    @include flex-column;
+    gap: size(24);
+
+    &-item {
+      border: 0;
+      padding-bottom: size(24);
+      @include border-single(bottom, solid, 1, $headerborder);
+
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      &:first-of-type {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:last-of-type {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &-button {
+      @include flex-center-vert;
+      gap: size(4);
+
+      .icon {
+        @include square(20);
+        @include flex-center;
+        overflow: hidden;
+
+        svg {
+          @include wh100;
+        }
+      }
+
+      .text {
+        color: $headingText;
+        font-size: size(16);
+        font-weight: 500;
+      }
+
+      &::after {
+        width: 0;
+        height: 0;
+        content: '';
+        display: none;
+      }
+
+      &.collapsed {
+        .icon {
+          @include rotate(180);
+        }
+
+        &::after {
+          width: 0;
+          height: 0;
+          content: '';
+          display: none;
+        }
+      }
+
+      &:not(.collapsed) {
+        @include setBgColor($white, $headingText);
+        box-shadow: none;
+
+        .icon {
+          @include rotate(0);
+        }
+      }
+    }
+
+    &-body {
+      .inputbox {
+        @include flex-column;
+        gap: size(12);
+  
+        .inputfield {
+          @include setBgColor($bodybg, $headingText);
+          @include border(solid, 1, $headerborder);
+          @include radius(8);
+          font-size: size(14);
+          font-weight: 400;
+          padding: size(12.5) size(16);
+          @include transitionsall;
+  
+          &:focus {
+            border-color: $primary;
+            background: transparent;
+          }
+        }
+      }
+
+      .genderbox {
+        @include flex-center-vert;
+        gap: size(12);
+
+        .gendersingle {
+          .radiogender {
+            &:checked ~ .radiolabel {
+              &::before {
+                background: $primary;
+              }
+  
+              &::after {
+                border-color: $primary;
+              }
+            }
+          }
+
+          .radiolabel {
+            cursor: pointer;
+            position: relative;
+            padding-left: size(22);
+            font-size: size(14);
+            font-weight: 400;
+            color: $black;
+
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 0;
+              @include translateY(-50%);
+            }
+
+            &::before {
+              @include square(8);
+              @include circle;
+              background: transparent;
+              left: size(4);
+              z-index: 2;
+              @include transitionsall;
+            }
+
+            &::after {
+              @include square(16);
+              @include border(solid, 1, $textPrimary);
+              @include circle;
+              background: $white;
+              z-index: 1;
+              @include transitionsall;
+            }
+          }
+        }
+      }
+
+      .drop-zone {
+        @include setBgColor($bodybg, $headingText);
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        @include flex-center;
+        gap: size(8);
+        text-align: center;
+        height: size(160);
+
+        &__prompt {
+          .text {
+            color: $textPrimary;
+            font-size: size(12);
+
+            span {
+              color: $primary;
+              font-weight: 600;
+              cursor: pointer;
+              @include transitionscolor;
+
+              @include hover {
+                color: $blue;
+              }
+            }
+          }
+        }
+      }
+
+      .tags-input-wrapper {
+        @include flex-center-vert;
+        gap: size(5);
+        @include setBgColor($bodybg, $headingText);
+        @include border(solid, 1, $headerborder);
+        @include radius(8);
+        @include w100;
+        padding: size(8) size(15);
+        height: size(44);
+
+        .tag {
+          padding: size(5) size(12);
+          @include flex-center-between;
+          gap: size(10);
+          @include setBgColor($headingText, $white);
+          font-size: size(12);
+          font-weight: 600;
+          @include radius(8);
+
+          a {
+            @include square(16);
+            @include flex-center;
+            overflow: hidden;
+            color: $white;
+            font-size: size(16);
+            margin-top: size(-4);
+            cursor: pointer;
+
+            @include hover {
+              color: $danger;
+            }
+          }
+        }
+
+        input {
+          @include h100;
+          @include setBgColor(transparent, $headingText);
+          font-size: size(14);
+          padding-left: size(10);
+        }
+      }
+    }
+  }
+
+  .btn-submit {
+    @include setBgColor($primary, $white);
+    @include radius(8);
+    @include flex-center;
+    font-size: size(12);
+    font-weight: 600;
+    padding: size(12) size(30);
+    text-align: center;
+    @include transitionsall;
+
+    @include hover {
+      @include setBgColor(darken($primary, 10%), $white);
+    }
+  }
+}
