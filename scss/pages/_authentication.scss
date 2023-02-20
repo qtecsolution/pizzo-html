@@ -1,9 +1,107 @@
 @use "../global" as *;
 @use "../partials" as *;
 
-.authentication {
-  // background: $checkborder;
-  @include flex;
-  width: 100%;
+.authentications {
+  padding: size(32) 0;
   min-height: 100vh;
+  
+  @include breakpoint(mobile768) {
+    padding: size(48) 0;
+  }
+
+  @include breakpoint(desktop1400) {
+    padding: size(64) 0;
+  }
+
+  .authentication {
+    background: $white;
+    @include flex-center-column;
+    gap: size(40);
+    width: 100%;
+    @include radius(12);
+    padding: size(14) size(14) size(32);
+
+    @include breakpoint(mobile768) {
+      padding: size(20) size(20) size(40);
+    }
+
+    &-header {
+      @include flex-center-column;
+      gap: size(10);
+      text-align: center;
+    
+      .logo {
+        width: size(157);
+        height: size(76);
+        @include flex-center;
+        overflow: hidden;
+
+        img {
+          @include wh100;
+          object-fit: cover;
+        }
+      }
+
+      .titlebox {
+        max-width: size(425);
+        margin-inline: auto;
+        
+        .authentication-title {
+          color: $gray-700;
+          @include font($secondaryFont, 24, normal, normal, 32);
+
+          @include breakpoint(mobile768) {
+            font-size: size(32);
+          }
+        }
+      }
+    }
+    
+    &-body {
+      .authlink {
+        .link {
+          color: $textPlaceholder;
+          @include font($secondaryFont, 14, normal, normal, 17.5);
+          @include transitionscolor;
+
+          @include hover {
+            color: $blue;
+          }
+        }
+      }
+
+      .submitbox {
+        @include flex-center-column;
+        gap: size(24);
+
+        .submitinfo {
+          width: size(160);
+          height: size(48);
+          @include flex-center;
+          overflow: hidden;
+          margin-inline: auto;
+        }
+
+        .authinfo {
+          @include flex-center;
+          gap: size(20);
+          
+          .text {
+            color: $gray-600;
+            @include font($primaryFont, 14, medium, normal, 17.5);
+          }
+  
+          .link {
+            color: $lightred;
+            @include font($primaryFont, 14, medium, normal, 17.5);
+            @include transitionscolor;
+
+            @include hover {
+              color: $blue;
+            }
+          }
+        }
+      }
+    }
+  }
 }

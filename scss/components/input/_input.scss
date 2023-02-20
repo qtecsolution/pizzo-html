@@ -1,10 +1,26 @@
 @use '../../global' as *;
 @use '../../partials' as *;
 
+.form-label {
+  color: $textPrimary;
+  @include font($secondaryFont, 14, medium, normal, 17.5);
+}
+
 .form-control,
 .form-select {
+  border-color: $gray-300;
+  color: $textPrimary;
+  @include font($secondaryFont, 15, normal, normal, 15);
+  padding: size(11.5) size(16);
+  @include transitionsall;
+
   &:focus {
     box-shadow: none;
     outline: none;
+    border-color: darken($gray-300, 20%);
+  }
+
+  &::placeholder {
+    color: $textPlaceholder;
   }
 }

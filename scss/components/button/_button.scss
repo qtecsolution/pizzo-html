@@ -9,6 +9,7 @@ button,
   opacity: 1;
   margin: 0;
   padding: 0;
+  @include wh100;
 
   &:focus {
     box-shadow: none;

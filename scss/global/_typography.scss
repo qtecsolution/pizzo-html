@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 $primaryFont: "Outfit", sans-serif;
+$secondaryFont: "Lexend", sans-serif;
 
 // FONT SIZE PIXEL TO REM
 @function calculateRem($size, $base: 16) {
