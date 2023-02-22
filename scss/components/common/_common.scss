@@ -1,0 +1,16 @@
+@use "../../global" as *;
+@use "../../partials" as *;
+
+
+
+.logo {
+    width: size(100);
+    height: size(50);
+    @include flex-center;
+    overflow: hidden;
+  
+    img {
+      @include wh100;
+      object-fit: cover;
+    }
+  }
