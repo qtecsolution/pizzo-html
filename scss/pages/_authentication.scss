@@ -28,7 +28,6 @@
     &-header {
       @include flex-center-column;
       gap: size(10);
-      text-align: center;
     
       .logo {
         width: size(157);
@@ -45,6 +44,9 @@
       .titlebox {
         max-width: size(425);
         margin-inline: auto;
+        @include flex-center-column;
+        gap: size(10);
+        text-align: center;
         
         .authentication-title {
           color: $gray-700;
@@ -54,13 +56,19 @@
             font-size: size(32);
           }
         }
+
+        .infotext {
+          color: $gray-600;
+          @include font($primaryFont, 14, normal, normal, 17.5);
+        }
       }
     }
     
     &-body {
       .authlink {
         .link {
-          color: $textPlaceholder;
+          @include setBgColor(transparent, $textPlaceholder);
+          border: 0;
           @include font($secondaryFont, 14, normal, normal, 17.5);
           @include transitionscolor;
 
@@ -92,9 +100,11 @@
           }
   
           .link {
-            color: $lightred;
+            @include setBgColor(transparent, $lightred);
+            border: 0;
             @include font($primaryFont, 14, medium, normal, 17.5);
             @include transitionscolor;
+            width: auto;
 
             @include hover {
               color: $blue;

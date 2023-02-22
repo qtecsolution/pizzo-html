@@ -14,7 +14,8 @@
   padding: size(11.5) size(16);
   @include transitionsall;
 
-  &:focus {
+  &:focus,
+  &:active {
     box-shadow: none;
     outline: none;
     border-color: darken($gray-300, 20%);
