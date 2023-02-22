@@ -65,7 +65,6 @@ header {
   left: 0;
   list-style: none;
   opacity: 0;
-  font-size: 2rem;
   height: 100vh;
   background-color: black;
   border-radius: 0.25em;
@@ -74,13 +73,28 @@ header {
   right: 0;
   background: #F5F3EF;
   visibility: hidden;
+  @include flex-column;
+  gap: size(7);
+  
+
+
+  li {
+    background: $white;
+    margin-inline: size(10);
+    padding: size(16);
+    text-align: left;
+
+    .icon-wrapper {
+      
+    }
+  }
 
   
   
 }
 
 .check:checked~.menu-items {
-  display: block;
+  display: flex;
   transform: translateX(0%);
   opacity: 1;
   visibility: visible;

@@ -14,3 +14,9 @@
       object-fit: cover;
     }
   }
+
+  .square-icon-wrapper {
+    @include square(40);
+    background: $iconBg;
+
+  }
