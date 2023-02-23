@@ -27,6 +27,7 @@
         }
     }
 }
+
 .profile-menu {
     border: none;
     
@@ -50,5 +51,37 @@
         .text {
             color: $gray-700;
         }
+    }
+}
+
+
+.myaddress {
+
+}
+.addresslist {
+    @include list-vertical;
+    gap: size(12);
+
+    &-item {
+        @include flex;
+        align-items: center;
+        justify-content: space-between; 
+        @include border(solid,1,$gray-300);
+        padding: size(16);
+        @include radius(6);
+        
+
+        .left {
+            @include flex;
+            align-items: center;
+            gap: size(16);
+
+            .icon-wrapper {
+                @include square(36);
+                @include flex-center;
+                @include circle;
+            }
+        }
+
     }
 }
