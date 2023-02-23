@@ -17,6 +17,17 @@
 
   .square-icon-wrapper {
     @include square(40);
+    @include radius(8);
     background: $iconBg;
+    @include flex-center; 
+    
+    i.fa-regular{
+      color: $lightred !important;
+    }
+    svg {
+      path {
+        fill:$lightred ;
+      }
+    }
 
   }
