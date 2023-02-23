@@ -25,22 +25,51 @@ header {
 
     @include hover {
       .dropdown-content {
-        display: block
+        display: block;
       }
     }
+
     .dropdown-content {
       position: absolute;
       @include w100;
       min-width: size(200);
       top: 100%;
       right: 0;
-      display: none;
+      display:none;
       @extend  %animation; 
       @extend %slideUpIn;
       @include transitionsall;
       background: $white;
-      
+      @include border(solid,1,$gray-100);
+      box-shadow: $box-shadow-1;
+      @include radius(10);
 
+    }
+
+    .dropdown-menulist {
+      border: none; 
+      li {
+        border: none;
+        padding: size(10) size(8);
+        @include transitionsall;
+        @include hover {
+          background: $gray-50;
+        }
+        &.active {
+          background: $gray-50;
+          
+        }
+      }
+      a {
+        svg {
+          path {
+            fill: $lightred;
+          }
+        }
+        .text {
+          color:$gray-700;
+        }
+      }
     }
   }
 }
@@ -82,7 +111,7 @@ header {
     @include transitionsall;
     &.active {
       a {
-        background: $bodybg;
+        background: $gray-50;
       }
     }
 

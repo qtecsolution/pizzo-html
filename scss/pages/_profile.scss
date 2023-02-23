@@ -1,0 +1,45 @@
+@use "../global" as *;
+@use "../partials" as *;
+
+
+
+.userinfo-card {
+    .icon {
+        @include square(100);
+        overflow: hidden;
+        svg {
+            @include wh100;
+            path {
+                fill :$lightred;
+            }
+        }
+        i {
+            @include wh100
+        }
+        img {
+            @include wh100;
+            @include circle;
+            object-fit: cover;
+        }
+    }
+}
+.profile-menu {
+    border: none;
+    
+    .list-group-item {
+        border: none;
+        background: transparent;
+        @include radius(10);
+        @include transitionsall;
+        @include hover {
+            background: $white;
+        }
+        svg {
+            @include square(20);
+        }
+        
+        .text {
+            color: $gray-700;
+        }
+    }
+}

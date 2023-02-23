@@ -3,12 +3,21 @@
 
 
 
+
+
+.pointer {
+  cursor: pointer;
+}
+
 .logo {
-    width: size(100);
-    height: size(50);
+    width: size(75);
+    height: size(37);
     @include flex-center;
     overflow: hidden;
-  
+    @include breakpoint(mobile576) {
+      width: size(100);
+      height: size(50);
+    }
     img {
       @include wh100;
       object-fit: cover;
