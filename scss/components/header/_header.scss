@@ -149,7 +149,14 @@ header {
   
   
 }
-
+.cross-icon ,
+.bar-icon {
+ display: inline-block;
+ padding-top: size(2);
+  svg {
+    @include square(20);
+  }
+}
 .check:checked~.menuitems {
   display: flex;
   transform: translateX(0%);

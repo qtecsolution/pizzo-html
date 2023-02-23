@@ -5,7 +5,11 @@
 
 .userinfo-card {
     .icon {
+        @include square(70);
+        @include breakpoint(mobile576) {
         @include square(100);
+
+        }
         overflow: hidden;
         svg {
             @include wh100;
