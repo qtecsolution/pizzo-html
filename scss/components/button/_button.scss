@@ -22,3 +22,8 @@ button,
   padding: size(12);
   // @include border(solid, 1, $primaryText);
 }
+
+.btn-clear {
+  border: none;
+  width: max-content;
+}

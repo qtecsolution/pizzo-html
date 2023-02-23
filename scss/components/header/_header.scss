@@ -30,6 +30,7 @@ header {
     }
 
     .dropdown-content {
+
       position: absolute;
       @include w100;
       min-width: size(200);
@@ -43,6 +44,7 @@ header {
       @include border(solid,1,$gray-100);
       box-shadow: $box-shadow-1;
       @include radius(10);
+      
 
     }
 
@@ -57,11 +59,12 @@ header {
         }
         &.active {
           background: $gray-50;
-          
+
         }
       }
       a {
         svg {
+          @include square(16);
           path {
             fill: $lightred;
           }
@@ -152,4 +155,153 @@ header {
   transform: translateX(0%);
   opacity: 1;
   visibility: visible;
+} 
+.check:checked ~ lable .bar-icon {
+  display: none;
+}
+.check:checked ~ lable .cross-icon {
+  display: block !important;
+}
+
+
+ .notify {
+  width: size(240);
+
+  @include breakpoint(mobile768) {
+    width: size(300);
+  }
+
+  .notification {
+    @include flex-column;
+    background: $white;
+
+    &-header {
+      @include border-single(bottom, solid, 1, $gray-100);
+      @include flex-center-between;
+      padding: size(12) size(16);
+      border-right: 8px solid transparent;
+
+      .title {
+        color: $gray-900;
+        @include font($primaryFont, 11, medium, normal, 15.4);
+        text-transform: uppercase;
+        letter-spacing: size(1);
+      }
+
+      .btn-clear {
+        color: $textPrimary;
+        display: inline-block;
+        @include font($primaryFont, 11, normal, normal, 15.4);
+        @include transitionscolor;
+        background: transparent;
+        @include hover {
+          color: $lightred;
+        }
+      }
+    }
+
+    &-body {
+      .emptynotification {
+        @include w100;
+        height: size(200);
+        @include flex-center;
+        text-align: center;
+
+        &-title {
+          color: $gray-700;
+          @include font($primaryFont, 14, normal, normal, 18.2);
+        }
+      }
+
+      .notificationlist {
+        max-height: size(300);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        @include list-vertical;
+
+        &-link {
+
+          @include flex;
+          gap: size(10);
+          padding: size(8) size(16);
+          background: $white;
+          @include border-single(bottom, solid, 1, $shade-1);
+
+          .usericon {
+            @include square(40);
+            @include circle;
+            @include flex-center;
+            overflow: hidden;
+
+            img {
+              @include wh100;
+              object-fit: cover;
+            }
+          }
+
+          .details {
+            width: calc(100% - size(48));
+            @include flex-column;
+            gap: size(4);
+
+            .info {
+              .name {
+                color: $black;
+                @include font($primaryFont, 13, semibold, normal, 18.2);
+              }
+
+              .text {
+                color: $textPrimary;
+                @include font($primaryFont, 12, normal, normal, 16.8);
+              }
+            }
+
+            .time {
+              color: $textPlaceholder;
+              @include font($primaryFont, 12, normal, normal, 16.8);
+            }
+          }
+
+          @include hover {
+            background: $gray-50;
+          }
+        }
+
+        &-item {
+          &:last-of-type {
+            .notificationlist-link {
+              border-bottom: 0;
+            }
+          }
+        }
+
+        &::-webkit-scrollbar {
+          background: transparent;
+          width: size(8);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $gray-600;
+          @include radius(8);
+        }
+      }
+    }
+
+    &-footer {
+      background: $white;
+      @include border-single(top, solid, 1, $gray-50);
+      height: size(40);
+      @include flex-center;
+
+      .link {
+        color: $textPrimary;
+        @include font($primaryFont, 12, medium, normal, 16.8);
+        @include transitionscolor;
+
+        @include hover {
+          color: $black;
+        }
+      }
+    }
+  }
 }

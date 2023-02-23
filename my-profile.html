@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SITE TITLE -->
-    <title>Pizzo Profile </title>
+    <title>Pizzo</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
     <!-- BACK-TO-TOP CSS -->
@@ -18,6 +18,8 @@
 </head>
 
 <body>
+
+    <!-- ================================== HEADER START ============================================== -->
     <header class="d-flex justify-content-between align-items-center px-3 px-lg-5 py-2 bg-white sticky-top">
 
         <!-- hamburger and mobile search icon  -->
@@ -25,8 +27,16 @@
 
             <input type="checkbox" name="" id="hamburger" class="check">
 
-            <lable for="hamburger" class=" relative">
+            <lable for="hamburger" class=" relative ">
+              <!-- cross icon -->
+              <span class="cross-icon d-none">
+                <i class="fa-solid fa-xmark"></i>
+              </span>
+              
+              <span class="bar-icon">
                 <i class="fa-solid fa-bars fa-lg pointer"></i>
+              </span>
+
             </lable>
 
             <!-- search icon for mobile  -->
@@ -37,7 +47,7 @@
             <!-- mobile offcanvas menu -->
             <ul class="menuitems d-lg-none">
                 <li class="menuitems-list active">
-                    <a href="" class="menuitems-link">
+                    <a href="profile.html" class="menuitems-link">
                         <div class="square-icon-wrapper">
                             <i class="fa-regular fa-user-large"></i>
                         </div>
@@ -86,7 +96,7 @@
                 <img src="assets/images/logo/logo.svg" alt="brand-logo">
             </figure>
             <div class="d-none d-lg-flex search border py-1 px-2 rounded d-flex">
-                <input type="text" placeholder="Global search">
+                <input type="text" class="search-input" placeholder="Global search">
                 <span role="button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
@@ -103,7 +113,145 @@
                 </div>
                 <!-- dropdown menu  -->
                 <div class="dropdown-content">
-                <p>Notification here </p>
+
+                  <!-- NOTIFICATIONS -->
+                  <div class="notify">
+                    <div class="notification">
+
+                      <div class="notification-header">
+                        <h5 class="title">Notifications</h5>
+                  
+                        <button class="btn-clear" type="button">Clear All</button>
+                      </div>
+                  
+                      <div class="notification-body">
+
+                        <!-- EMPTY-NOTIFICATIONS -->
+                        <div class="emptynotification d-none">
+                          <h5 class="emptynotification-title">
+                            No notifications found.
+                          </h5>
+                        </div>
+                  
+                        <!-- NOTIFICATIONS-LIST -->
+                        <ul class="notificationlist">
+
+                          <li class="notificationlist-item">
+                            <a href="#" class="notificationlist-link">
+                              <span class="usericon">
+                                <img
+                                  src="https://media.istockphoto.com/id/882495390/photo/happiness.jpg?s=612x612&w=0&k=20&c=SVUBI4k1eTLtc8rUcO4iWAgOo7SUcUdT8qOE7p3G9F8="
+                                  alt="notification-thumbnail" />
+                              </span>
+                  
+                              <span class="details">
+                                <span class="info">
+                                  <span class="name"> Jane Doe </span>
+                  
+                                  <span class="text">
+                                    marked the task as done
+                                  </span>
+                                </span>
+                  
+                                <span class="time">1 day ago</span>
+                              </span>
+                            </a>
+                          </li>
+                  
+                          <li class="notificationlist-item">
+                            <a href="#" class="notificationlist-link">
+                              <span class="usericon">
+                                <img
+                                  src="https://media.istockphoto.com/id/1278978817/photo/portrait-of-happy-mature-man-smiling.jpg?s=612x612&w=0&k=20&c=GPniKSszzPgprveN7sCT5mb-_L3-RSlGAOAsmoDaafw="
+                                  alt="notification-thumbnail" />
+                              </span>
+                  
+                              <span class="details">
+                                <span class="info">
+                                  <span class="name"> Stephan Parker </span>
+                                  <span class="text">
+                                    answered to your comment on the Cash Flow
+                                    Forecast's graph
+                                  </span>
+                                </span>
+                  
+                                <span class="time">2 hours ago</span>
+                              </span>
+                            </a>
+                          </li>
+                  
+                          <li class="notificationlist-item">
+                            <a href="#" class="notificationlist-link">
+                              <span class="usericon">
+                                <img
+                                  src="https://media.istockphoto.com/id/891418990/photo/confident-businessman-posing-in-the-office.jpg?s=612x612&w=0&k=20&c=a3PcRJAN9QTIfOUJj566B_I4xx2LANZFnX90_-Oe7CI="
+                                  alt="notification-thumbnail" />
+                              </span>
+                  
+                              <span class="details">
+                                <span class="info">
+                                  <span class="name"> Steve Roser </span>
+                                  <span class="text">
+                                    mentionned you in his comment on Facebook
+                                  </span>
+                                </span>
+                  
+                                <span class="time">45 minutes ago</span>
+                              </span>
+                            </a>
+                          </li>
+                  
+                          <li class="notificationlist-item">
+                            <a href="#" class="notificationlist-link">
+                              <span class="usericon">
+                                <img
+                                  src="https://media.istockphoto.com/id/1218228957/photo/portrait-of-young-woman-with-curly-hair-in-the-city.jpg?s=612x612&w=0&k=20&c=OQq7It1_mOXsKbRrz2YUM80Lo3ujaLtOfDnOjUQ8cAs="
+                                  alt="notification-thumbnail" />
+                              </span>
+                  
+                              <span class="details">
+                                <span class="info">
+                                  <span class="name"> Sophie Welch </span>
+                                  <span class="text">
+                                    mentioned you in her comment on Invoices
+                                  </span>
+                                </span>
+                  
+                                <span class="time">5 days ago</span>
+                              </span>
+                            </a>
+                          </li>
+                  
+                          <li class="notificationlist-item">
+                            <a href="#" class="notificationlist-link">
+                              <span class="usericon">
+                                <img
+                                  src="https://media.istockphoto.com/id/1173300976/vector/smile-face-icon-isolated-on-white-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=x-NfEzazlDkypdO4CBbYDPJoTAOTDVFasAZy2mrDH4U="
+                                  alt="notification-thumbnail" />
+                              </span>
+                  
+                              <span class="details">
+                                <span class="info">
+                                  <span class="name"> Brad Traversy </span>
+                                  <span class="text">
+                                    mentioned you in her comment on Youtube
+                                  </span>
+                                </span>
+                  
+                                <span class="time">5 hours ago</span>
+                              </span>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </div>
+                  
+                      <div class="notification-footer">
+                        <a href="#" class="link">View All</a>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
             </div>
 
@@ -152,17 +300,16 @@
 
         </div>
 
-
-
-
-
     </header>
+    <!-- ================================== HEADER END ============================================== -->
 
+    <!-- ================================MAIN SECTION START================================================= -->
     <main>
+
         <section class="profile py-5">
             <div class="container">
                 <div class="row g-3">
-                    
+                    <!-- LEFT CONTENT  -->
                     <div class="col-lg-4">
                         <!-- userinfo card  -->
                         <div class="userinfo-card rounded bg-white d-flex  flex-column align-items-center gap-1 p-4">
@@ -174,10 +321,9 @@
                         </div>
 
                         <!-- profile menu -->
+                        <ul class="list-group profile-menu mt-3 gap-2">
 
-                        <ul class="list-group profile-menu mt-3">
-
-                             <li class="list-group-item p-3">
+                             <li class="list-group-item p-3 active">
                                 <a href="#" class="d-flex  align-items-center  gap-2">
                                     <div class="square-icon-wrapper">
                                         <i class="fa-regular fa-circle-user"></i>
@@ -219,10 +365,12 @@
 
                     </div>
 
+                    <!-- RIGHT CONTENT  -->
                     <div class="col-lg-8">
 
+                           <!--  MYACCOUNT  FORM  -->
                           <div class="profileform bg-white rounded  p-3 p-md-5">
-
+                             <!-- RIGHT ICON  -->
                               <figure class="d-flex align-items-center justify-content-center py-4">
                                 
                                 <svg width="177" height="123" viewBox="0 0 177 123" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -302,32 +450,39 @@
                                     
                               </figure>
 
+                              <!-- RIGHT FORM  -->
                               <form class="row g-3 needs-validation" novalidate>
+
                                 <div class="col-12">
                                   <label for="fullName" class="form-label">FullName</label>
-                                  <input type="text" class="form-control" id="fullName" placeholder="Full Name " required> 
+                                  <input type="text" class="form-control" id="fullName" placeholder="Full Name " autocomplete="off" required> 
                                   <div class="invalid-feedback">
                                     Fullname should not be empty
                                   </div>
                                 </div>  
                 
                                 <div class="col-12">
-                                  <label for="loginpassword" class="form-label">Email</label>
-                                  <input type="password" class="form-control" id="loginpassword" placeholder="example@gmail.com" required>
+                                  <label for="email" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="email" placeholder="example@gmail.com" autocomplete="off" required>
                                   <div class="invalid-feedback">
                                     Please enter a valid email .
+                                  </div>
+                                </div>
+
+                                <div class="col-12">
+                                  <label for="phone" class="form-label">Phone</label>
+                                  <input type="number" class="form-control" id="phone" placeholder="Phone " autocomplete="off" required>
+                                  <div class="invalid-feedback">
+                                    Please Enter a phone number 
                                   </div>
                                 </div>
                 
                                 <div class="col-12">
                                   <div class="submitbox text-end">
-                                    
                                       <button class="btn btn-warning py-2  w-auto px-5" type="submit">Save</button>
-                                 
-    
-        
                                   </div>
                                 </div>
+
                               </form>
 
                           </div>
@@ -339,9 +494,7 @@
         </section>
        
     </main>
-
-
-
+    <!-- ================================ MAIN SECTION END ================================================= -->
 
     <!-- mobile search offcanvas content -->
     <div class="offcanvas w-100 offcanvas-top" tabindex="-1" id="mobileSearch" aria-labelledby="offcanvasTopLabel">
