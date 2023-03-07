@@ -1,67 +1,108 @@
-@use "../global" as *;
-@use "../partials" as *;
+@use "../global"as *;
+@use "../partials"as *;
 
 .cart-category {
- 
+    padding: size(30) size(38);
 
-   .left-content {
+    .left-content {
 
-    @include breakpoint(tab992) {
-         width: calc(100% - size(266));
-
-    }
-   }
-   .right-cart {
-    width: size(262);
-    padding: size(10);
-    background-color: $cartBg;
-    height: calc(100vh - size(66));
-    position: fixed;
-    right: 0;
-    top: size(100);
-    bottom: 0;
-    z-index: 1;
-    overflow-y: scroll;
-
-    @include flex-column;
-    
-
-    &-header {
-        @include border-single(bottom,solid,1,$gray-300);
-        padding-inline: size(18);
-        height: size(80);
-        @include flex-between;
-        align-items: center;
-        color: $cartText;
-
-        .title {
-            color: $cartText;
+        @include breakpoint(tab992) {
+            width: calc(100% - size(266));
         }
-        .status {
-            color: $cartText;
-            @include font($primaryFont,12,normal,normal,20);
-            @include breakpoint(mobile576) {
-                @include font($primaryFont,14,normal,normal,20);
+
+        .categories {
+            @include flex-column;
+            gap: size(18);
+            @include breakpoint(tab992) {
+                gap: size(24);
+            }
+            &-title {
+                color: $gray-900;
+                @include font($primaryFont, 18, normal, normal, 30);
+                
+
+                @include breakpoint(tab992) {
+                   @include font($primaryFont, 24, normal, normal, 30);
+
+                }
 
             }
         }
+
+        .products {
+            @include flex-column;
+            gap: size(18);
+            @include breakpoint(tab992) {
+                gap: size(24);
+            }
+            &-title {
+                color: $gray-900;
+                @include font($primaryFont, 18, normal, normal, 30);
+
+                @include breakpoint(tab992) {
+                   @include font($primaryFont, 24, normal, normal, 30);
+
+                }
+
+            }
+
+            .product-cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                grid-gap: 20px;
+                // display: flex;
+            
+            
+            }
+        }
+
     }
 
-    &-body {
-        @include flex-center;
-        height: 100%;
-        
+    .right-cart {
+        width: size(262);
+        padding: size(10);
+        background-color: $cartBg;
+        height: calc(100vh - size(66));
+        position: fixed;
+        right: 0;
+        top: size(70);
+        bottom: 0;
+        z-index: 1;
+       
+
+        @include flex-column;
+
+
+        &-header {
+            @include border-single(bottom, solid, 1, $gray-300);
+            padding-inline: size(18);
+            height: size(80);
+            @include flex-between;
+            align-items: center;
+            color: $cartText;
+
+            .title {
+                color: $cartText;
+            }
+
+            .status {
+                color: $cartText;
+                @include font($primaryFont, 12, normal, normal, 20);
+
+                @include breakpoint(mobile576) {
+                    @include font($primaryFont, 14, normal, normal, 20);
+
+                }
+            }
+        }
+
+        &-body {
+            @include flex-center;
+            height: 100%;
+
+        }
+
+
     }
-
-    
-   }
 }
 
-.product-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    grid-gap: 20px;
-    // display: flex;
-    
-    
-}
