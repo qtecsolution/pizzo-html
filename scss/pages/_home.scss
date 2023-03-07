@@ -2,18 +2,26 @@
 @use "../partials" as *;
 
 .cart-category {
-   @include flex;
-   justify-content: space-between;
+ 
 
    .left-content {
-        flex: 1;
+
+    @include breakpoint(tab992) {
+         width: calc(100% - size(266));
+
+    }
    }
    .right-cart {
-    flex-basis: size(362);
+    width: size(262);
     padding: size(10);
     background-color: $cartBg;
     height: calc(100vh - size(66));
-    
+    position: fixed;
+    right: 0;
+    top: size(100);
+    bottom: 0;
+    z-index: 1;
+    overflow-y: scroll;
 
     @include flex-column;
     
@@ -47,4 +55,13 @@
 
     
    }
+}
+
+.product-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-gap: 20px;
+    // display: flex;
+    
+    
 }

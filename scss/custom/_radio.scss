@@ -19,13 +19,13 @@
     }
     &-label{
       position: relative;
-      color: $gray-600;
-      padding-left: size(30);
+      color: #4E5D78;
+      padding-left: size(24);
       cursor: pointer;
       @include transitionscolor;
-      @include font($secondaryFont,14,medium,normal,18);
+      @include font($secondaryFont,12,normal,normal,18);
       @include breakpoint(mobile576){
-        @include font($secondaryFont,14,medium,normal,20);
+        @include font($secondaryFont,12,normal,normal,20);
       } 
       @include hover {
         color: $gray-700;
