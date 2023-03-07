@@ -1,6 +1,84 @@
 @use "../../global" as *;
 @use "../../partials" as *;
 
+.product-card {
+    height: size(300);
+    overflow: hidden;
+    
+    padding: size(16) ;
+    max-width: size(232);
+    background: $white;
+    @include radius(8);
+    box-shadow: $box-shadow-1;
+    @include flex-column;
+    gap: size(8);
 
+    @include transitionsall;
+    
+    &-top {
+        @include flex-column;
+        gap: size(8);
+        text-align: center;
+
+    }
+
+    &-bottom {
+        @include flex-column;
+        gap: size(8);
+        align-items: center;
+    }
+
+    @include hover {
+    max-height:max-content;
+    @include transitionsall;
+
+    } 
+
+    .product-thumb {
+        height: size(160);
+        width: size(200);
+        @include radius(8);
+        overflow: hidden;
+
+        img {
+            @include wh100;
+        }
+
+    }
+
+    .product-title {
+        color: $gray-700;
+        @include font($primaryFont,16,medium,normal,20);
+
+    } 
+    .price-from {
+        color: $gray-600;
+        @include font($primaryFont,14,normal,normal,20);
+
+        .price {
+         color: $gray-900;
+         @include font($primaryFont,16,medium,normal,20);
+
+        }
+    }
+
+    .description {
+        color: $gray-600;
+         @include font($primaryFont,14,medium,normal,18);
+         @include line-clamp-3;
+         text-align: center;
+
+
+
+    }
+
+    .radios {
+        padding-block: size(8);
+        @include flex;
+        align-items: center;
+        gap: size(8);
+        flex-wrap: wrap;
+    }
+}
 
 

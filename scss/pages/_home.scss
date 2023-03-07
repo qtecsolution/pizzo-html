@@ -1,2 +1,50 @@
 @use "../global" as *;
 @use "../partials" as *;
+
+.cart-category {
+   @include flex;
+   justify-content: space-between;
+
+   .left-content {
+        flex: 1;
+   }
+   .right-cart {
+    flex-basis: size(362);
+    padding: size(10);
+    background-color: $cartBg;
+    height: calc(100vh - size(66));
+    
+
+    @include flex-column;
+    
+
+    &-header {
+        @include border-single(bottom,solid,1,$gray-300);
+        padding-inline: size(18);
+        height: size(80);
+        @include flex-between;
+        align-items: center;
+        color: $cartText;
+
+        .title {
+            color: $cartText;
+        }
+        .status {
+            color: $cartText;
+            @include font($primaryFont,12,normal,normal,20);
+            @include breakpoint(mobile576) {
+                @include font($primaryFont,14,normal,normal,20);
+
+            }
+        }
+    }
+
+    &-body {
+        @include flex-center;
+        height: 100%;
+        
+    }
+
+    
+   }
+}
