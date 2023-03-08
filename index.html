@@ -13,10 +13,7 @@
   <link rel="stylesheet" href="assets/css/back-top/backToTop.css">
   <!-- BOOTSTRAP CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css"> 
-  <!-- SLICK SLIDER CSS  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- SLICK THEME  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
   <!-- PIZZO CSS -->
   <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
@@ -1224,7 +1221,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- SLICK SLIDER JS  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="assets/js/slick/slick.min.js"></script>
 
   <script src="https://kit.fontawesome.com/f737751420.js" crossorigin="anonymous"></script>
   <!-- BOOTSTRAP JS -->
@@ -1258,11 +1255,14 @@
 
     $(document).ready(function(){
       $('.categories-cards').slick({
-
-        dots: true,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 8,
+        touchMove: true,
+       
+        infinite: false,
+        speed: 300,
+        slidesToShow: 8,
+        appendArrows:$(".Arrows"), // Class For Arrows Buttons
+            prevArrow:'<span class="Slick-Prev"><i class="fa-solid fa-chevron-left"></i></span>',
+            nextArrow:'<span class="Slick-Next"><i class="fa-regular fa-angle-right"></i></span>',
        
         responsive: [
     {

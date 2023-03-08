@@ -111,3 +111,22 @@
     }
 }
 
+
+.categories {
+    &-header {
+        @include flex-between;
+        align-items: center;
+    }
+    .Arrows {
+        @include flex;
+        gap: size(10);
+
+        span {
+            @include square(24);
+            @include radius(4);
+            background: $white;
+            @include flex-center;
+            cursor: pointer;
+        }
+    }
+}
