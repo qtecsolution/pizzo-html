@@ -2,7 +2,12 @@
 @use "../partials"as *;
 
 .cart-category {
+    padding: size(30) size(20);
+
+    @include breakpoint(mobile567) {
     padding: size(30) size(38);
+
+    }
 
     .left-content {
 

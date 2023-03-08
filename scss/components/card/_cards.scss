@@ -85,4 +85,31 @@
     }
 }
 
+  /* the slides */
+  .slick-slide {
+    margin: 0 10px;
+}
 
+/* the parent */
+.slick-list {
+ 
+} 
+.categories {
+ 
+}
+
+.card-category{
+    @include square(113);
+
+    background: $white;
+    padding: size(12);
+    @include radius(8);
+    font-size: 18px !important;
+
+    .title {
+        font-size: 12px;
+    }
+    .item {
+        font-size: 10px;
+    }
+}
