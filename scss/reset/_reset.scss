@@ -185,6 +185,11 @@ input[type="search"]::-webkit-search-results-decoration {
   color: transparent;
 }
 
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: size(0);
+}
+
 input[type="date"]::before {
   content: attr(data-placeholder);
   @include w100;

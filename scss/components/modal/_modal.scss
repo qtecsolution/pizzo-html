@@ -2,10 +2,7 @@
 @use "../../partials"as *;
 
 .modal {
-  &-content {
-    @include radius(8);
-    // box-shadow: $modalshadow;
-  }
+ 
 
   &-header {
     border-bottom: 0;
@@ -31,5 +28,100 @@
         }
       }
     }
+  } 
+
+  &.checkout-modal {
+    .modal-body {
+      @include flex-column;
+      align-items: center;
+      @include w100;
+    }
+
+    .delivery-address {
+      @include w100;
+      @include flex-column;
+      gap: size(18);
+     
+      &-header {
+        color: $gray-900;
+        @include font($primaryFont,20,medium,normal,24);
+       
+      }
+
+      &-body {
+        .locationlist {
+          @include list-vertical;
+          gap: size(12);
+
+         &-item {
+          .customradio {
+            @include w100;
+            padding: size(16);
+          }
+         
+         
+          @include border(solid,1,$gray-300);
+          
+          @include radius(6);
+          
+  
+          .left {
+              @include flex;
+              align-items: center;
+              gap: size(16);
+              padding-left: size(10);
+  
+              .icon-wrapper {
+                  @include square(36);
+                  @include flex-center;
+                  @include circle;
+              }
+
+              .address-title {
+                @include flex-column;
+                gap: size(4);
+                .title {
+                  color: $gray-900;
+                  @include font($primaryFont,16,semibold,normal,24);
+                }
+                .address {
+                  color: $gray-600;
+                  @include font($primaryFont,16,normal,normal,14);
+
+                }
+              }
+          } 
+
+          .customradio-label {
+            @include flex;
+            align-items: center;
+            justify-content: space-between; 
+          }
+
+         }
+
+        }
+      }
+    }
+
+    .payment-methods {
+      @include flex-column;
+      gap: size(18);
+      @include w100;
+     
+      &-header {
+        color: $gray-900;
+        @include font($primaryFont,20,medium,normal,24);
+       
+      }
+      &-body {
+        .payment-method {
+          @include flex;
+          gap: size(16);
+          flex-wrap: wrap;
+        }
+      }
+    }
   }
 }
+

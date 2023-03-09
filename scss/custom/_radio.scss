@@ -62,3 +62,55 @@
     }
   }
 
+
+
+  .option {
+    .optioninput {
+      &:checked ~ .optionlabel {
+        background: $gray-300;
+        border-color: $primary;
+  
+        .title {
+          color: $white;
+        }
+      }
+    }
+  
+    .optionlabel {
+      background: $white;
+      @include border(solid, 1, $gray-300);
+      @include radius(6);
+      cursor: pointer;
+      @include flex-center-column;
+      gap: size(10);
+      padding: size(6) size(14);
+      text-align: center;
+      @include transitionsall;
+  
+      @include breakpoint(tab992) {
+        // padding: size(28);
+      }
+  
+      .icon {
+        @include square(48);
+        @include flex-center;
+        overflow: hidden;
+  
+        @include breakpoint(mobile768) {
+          height: size(30);
+          width: size(46);
+        }
+  
+        @include breakpoint(tab992) {
+          // @include square(60);
+          height: size(30);
+          width: size(46);
+        }
+  
+        svg {
+          @include wh100;
+        }
+      }
+  
+    }
+  }
