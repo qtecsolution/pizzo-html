@@ -121,7 +121,24 @@
           flex-wrap: wrap;
         }
       }
-    }
+    } 
+    .checkout-card {
+      background-color: $cartBg;
+      @include radius(8);
+      padding: size(16);
+      @include flex-column;
+      gap: size(10);
+      @include w100;
+      .total {
+          @include flex-between;
+          align-items: center;
+          color: $gray-900;
+          @include font($primaryFont,20,normal,normal,24);
+          
+      }
+
+  }
+  
   }
 
  

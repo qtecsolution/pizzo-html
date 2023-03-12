@@ -136,6 +136,29 @@
            }
         }
 
+<<<<<<< HEAD
 
     }
 } 
+=======
+   
+}
+
+.combo-titlebox {
+    @include flex-column;
+    gap: size(0);
+    padding-bottom: size(10);
+    .title {
+        color: $gray-900;
+        span {
+            color: $gray-600;
+            font-size: size(12);
+        }
+    }
+
+    .des {
+        font-size: size(12);
+
+    }
+}
+>>>>>>> 6a648d3b6664365532cd965ef5884c13786458e9
