@@ -93,9 +93,11 @@
 
         <!-- logo and desktop search  -->
         <div class=" d-flex align-items-center gap-4">
-            <figure class="logo">
-                <img src="assets/images/logo/logo.svg" alt="brand-logo">
-            </figure>
+            <a href="index.html">
+                <figure class="logo">
+                    <img src="assets/images/logo/logo.svg" alt="brand-logo">
+                </figure>
+            </a>
             <div class="d-none d-lg-flex search border py-1 px-2 rounded d-flex">
                 <input type="text" class="search-input" placeholder="Global search">
                 <span role="button">
@@ -563,7 +565,104 @@
                 <div class="products">
                     <h3 class="products-title">Products</h3>
                     <div class="product-cards ">
+                         <!-- single pizza card  -->
+                         <div class="product-card">
 
+                            <div class="product-card-top">
+                                <!-- product image  -->
+                                <figure class="product-thumb">
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
+                                        alt="">
+                                </figure>
+                                <!-- title -->
+                                <h3 class="product-title">The Original MargheritaThe Original Margherita</h3>
+                                <span class="price-from">from <span class="price">$ 12.99</span></span>
+                                <p class="description">
+                                    Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives
+                                    Mushrooms, Green Peppers, Red
+                                </p>
+
+
+                            </div>
+                            <div class="product-card-bottom">
+                                <!-- radions -->
+                                <div class="radios  ">
+
+                                    <div class="customradio">
+                                        <input type="radio" id="size-1" class="customradio-box" name="pzzaSize" hidden
+                                            checked>
+                                        <label for="size-1" class="customradio-label">7”</label>
+                                    </div>
+
+                                    <div class="customradio">
+                                        <input type="radio" id="size-2" class="customradio-box" name="pzzaSize" hidden>
+                                        <label for="size-2" class="customradio-label">10”</label>
+                                    </div>
+
+                                    <div class="customradio">
+                                        <input type="radio" id="size-3" class="customradio-box" name="pzzaSize" hidden>
+                                        <label for="size-3" class="customradio-label">13”</label>
+                                    </div>
+
+                                    <div class="customradio">
+                                        <input type="radio" id="size-4" class="customradio-box" name="pzzaSize" hidden>
+                                        <label for="size-4" class="customradio-label">15”</label>
+                                    </div>
+
+
+                                </div>
+                                <button class="addto-btn btn-ripple" data-bs-toggle="modal" data-bs-target="#addtoCartModal">Add to card </button>
+                            </div>
+                        </div>
+
+                        <!-- single pizza card  -->
+                        <div class="product-card">
+                            <div class="product-card-top">
+                                <!-- product image  -->
+                                <figure class="product-thumb">
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
+                                        alt="">
+                                </figure>
+                                <!-- title -->
+                                <h3 class="product-title">The Original Margherita</h3>
+                                <span class="price-from">from <span class="price">$ 12.99</span></span>
+                                <p class="description">
+                                    Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives
+                                    Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives
+                                    Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives
+                                </p>
+
+
+                            </div>
+                            <div class="product-card-bottom">
+                                <!-- radions -->
+                                <div class="radios">
+
+                                    <div class="customradio">
+                                        <input type="radio" id="wheelchair-1" class="customradio-box" name="wheelchair"
+                                            hidden checked>
+                                        <label for="wheelchair-1" class="customradio-label">7”</label>
+                                    </div>
+                                    <div class="customradio">
+                                        <input type="radio" id="wheelchair-1" class="customradio-box" name="wheelchair"
+                                            hidden checked>
+                                        <label for="wheelchair-1" class="customradio-label">10”</label>
+                                    </div>
+                                    <div class="customradio">
+                                        <input type="radio" id="wheelchair-1" class="customradio-box" name="wheelchair"
+                                            hidden checked>
+                                        <label for="wheelchair-1" class="customradio-label">13”</label>
+                                    </div>
+                                    <div class="customradio">
+                                        <input type="radio" id="wheelchair-1" class="customradio-box" name="wheelchair"
+                                            hidden checked>
+                                        <label for="wheelchair-1" class="customradio-label">15”</label>
+                                    </div>
+
+                                </div>
+                                <button class="addto-btn btn-ripple" data-bs-toggle="modal" data-bs-target="#comboCartModal">Add to card </button>
+                            </div>
+                        </div>
                         <!-- single pizza card  -->
                         <div class="product-card">
 
@@ -1559,24 +1658,11 @@
     </div>
 
 
-    <!-- mobile cart offcanvas content  -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
-        <div class="offcanvas-header">
-
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
-                    class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="offcanvas-body">
-            <h3>Cart content </h3>
-        </div>
-    </div> 
+    
 
     <!--  Checkout modal -->
 
-
- 
-
-   <div class="modal checkout-modal" id="checoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade checkout-modal" id="checoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
@@ -1908,6 +1994,980 @@
       </div>
       </div>
    </div>
+
+       <!-- mobile cart offcanvas content  -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+        <div class="offcanvas-header">
+
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div class="right-cart ">
+                <div class="right-cart-header d-flex align-items-center justify-content-between">
+                    <h3 class="title">Cart</h3>
+                    <p class="status">Cart is Empty </p>
+                </div>
+
+                <div class="right-cart-body">
+                    <!-- empty cart . this  part will be shown if there is no cart items  -->
+                    <div class="empty-cart d-none">
+                        <span>
+                            <img src="assets/images/empty-cart.svg" alt="empty cart">
+
+                        </span>
+
+                    </div>
+
+                    <!-- this cards will be shown if there is any cart items -->
+
+                    <div class="card-items">
+                        <div class="card-items-top">
+
+                            <!-- cart accordion  -->
+                            <div class="list-subtotal">
+
+                                <ul class="cartlist">
+
+                                    <li class="cartlist-item">
+                                        <!-- showing button  -->
+                                        <div class="btn-cart">
+                                            <div class="left">
+
+                                                <h3 class="title">The Original Marghertia</h3>
+                                                <span class="info">7” Deep Pan</span>
+                                                <div class="counter">
+                                                    <span class="increase">+</span>
+                                                    <span class="count">2</span>
+                                                    <span class="decrease">-</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="right">
+
+                                                <span class="arrow-icon">
+                                                    <svg width="8" height="6" viewBox="0 0 8 6" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M8 1.66663L4 5.66663L0 1.66663L0.933333 0.733293L4 3.79996L7.06667 0.733293L8 1.66663Z"
+                                                            fill="#606060" />
+                                                    </svg>
+                                                </span>
+                                                <div class="delete-price">
+
+                                                    <span class="delete-iocn">
+                                                        <svg width="10" height="12" viewBox="0 0 10 12" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M3.26667 8.76663L5 7.03329L6.73333 8.76663L7.43333 8.06663L5.7 6.33329L7.43333 4.59996L6.73333 3.89996L5 5.63329L3.26667 3.89996L2.56667 4.59996L4.3 6.33329L2.56667 8.06663L3.26667 8.76663ZM1.86667 11.6666C1.53333 11.6666 1.25 11.55 1.01667 11.3166C0.783333 11.0833 0.666667 10.8 0.666667 10.4666V1.99996H0V0.999959H3V0.416626H7V0.999959H10V1.99996H9.33333V10.4666C9.33333 10.8 9.21667 11.0833 8.98333 11.3166C8.75 11.55 8.46667 11.6666 8.13333 11.6666H1.86667ZM8.33333 1.99996H1.66667V10.4666C1.66667 10.5111 1.68889 10.5555 1.73333 10.6C1.77778 10.6444 1.82222 10.6666 1.86667 10.6666H8.13333C8.17778 10.6666 8.22222 10.6444 8.26667 10.6C8.31111 10.5555 8.33333 10.5111 8.33333 10.4666V1.99996ZM1.66667 1.99996V10.6666V10.4666V1.99996Z"
+                                                                fill="#606060" />
+                                                        </svg>
+                                                    </span>
+
+                                                    <span class="price">$ 14</span>
+
+                                                </div>
+
+                                            </div>
+                                        </div> 
+
+                                        <div class="cartlist-content">
+                                          <ul class="selecte-list">
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                          </ul>
+                                        </div>
+                                    </li>
+                                    <li class="cartlist-item">
+                                        <!-- showing button  -->
+                                        <div class="btn-cart">
+                                            <div class="left">
+
+                                                <h3 class="title">The Original Marghertia</h3>
+                                                <span class="info">7” Deep Pan</span>
+                                                <div class="counter">
+                                                    <span class="increase">+</span>
+                                                    <span class="count">2</span>
+                                                    <span class="decrease">-</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="right">
+
+                                                <span class="arrow-icon">
+                                                    <svg width="8" height="6" viewBox="0 0 8 6" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M8 1.66663L4 5.66663L0 1.66663L0.933333 0.733293L4 3.79996L7.06667 0.733293L8 1.66663Z"
+                                                            fill="#606060" />
+                                                    </svg>
+                                                </span>
+                                                <div class="delete-price">
+
+                                                    <span class="delete-iocn">
+                                                        <svg width="10" height="12" viewBox="0 0 10 12" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M3.26667 8.76663L5 7.03329L6.73333 8.76663L7.43333 8.06663L5.7 6.33329L7.43333 4.59996L6.73333 3.89996L5 5.63329L3.26667 3.89996L2.56667 4.59996L4.3 6.33329L2.56667 8.06663L3.26667 8.76663ZM1.86667 11.6666C1.53333 11.6666 1.25 11.55 1.01667 11.3166C0.783333 11.0833 0.666667 10.8 0.666667 10.4666V1.99996H0V0.999959H3V0.416626H7V0.999959H10V1.99996H9.33333V10.4666C9.33333 10.8 9.21667 11.0833 8.98333 11.3166C8.75 11.55 8.46667 11.6666 8.13333 11.6666H1.86667ZM8.33333 1.99996H1.66667V10.4666C1.66667 10.5111 1.68889 10.5555 1.73333 10.6C1.77778 10.6444 1.82222 10.6666 1.86667 10.6666H8.13333C8.17778 10.6666 8.22222 10.6444 8.26667 10.6C8.31111 10.5555 8.33333 10.5111 8.33333 10.4666V1.99996ZM1.66667 1.99996V10.6666V10.4666V1.99996Z"
+                                                                fill="#606060" />
+                                                        </svg>
+                                                    </span>
+
+                                                    <span class="price">$ 14</span>
+
+                                                </div>
+
+                                            </div>
+                                        </div> 
+
+                                        <div class="cartlist-content">
+                                          <ul class="selecte-list">
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                          </ul>
+                                        </div>
+                                    </li>
+                                    <li class="cartlist-item">
+                                        <!-- showing button  -->
+                                        <div class="btn-cart">
+                                            <div class="left">
+
+                                                <h3 class="title">The Original Marghertia</h3>
+                                                <span class="info">7” Deep Pan</span>
+                                                <div class="counter">
+                                                    <span class="increase">+</span>
+                                                    <span class="count">2</span>
+                                                    <span class="decrease">-</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="right">
+
+                                                <span class="arrow-icon">
+                                                    <svg width="8" height="6" viewBox="0 0 8 6" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M8 1.66663L4 5.66663L0 1.66663L0.933333 0.733293L4 3.79996L7.06667 0.733293L8 1.66663Z"
+                                                            fill="#606060" />
+                                                    </svg>
+                                                </span>
+                                                <div class="delete-price">
+
+                                                    <span class="delete-iocn">
+                                                        <svg width="10" height="12" viewBox="0 0 10 12" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M3.26667 8.76663L5 7.03329L6.73333 8.76663L7.43333 8.06663L5.7 6.33329L7.43333 4.59996L6.73333 3.89996L5 5.63329L3.26667 3.89996L2.56667 4.59996L4.3 6.33329L2.56667 8.06663L3.26667 8.76663ZM1.86667 11.6666C1.53333 11.6666 1.25 11.55 1.01667 11.3166C0.783333 11.0833 0.666667 10.8 0.666667 10.4666V1.99996H0V0.999959H3V0.416626H7V0.999959H10V1.99996H9.33333V10.4666C9.33333 10.8 9.21667 11.0833 8.98333 11.3166C8.75 11.55 8.46667 11.6666 8.13333 11.6666H1.86667ZM8.33333 1.99996H1.66667V10.4666C1.66667 10.5111 1.68889 10.5555 1.73333 10.6C1.77778 10.6444 1.82222 10.6666 1.86667 10.6666H8.13333C8.17778 10.6666 8.22222 10.6444 8.26667 10.6C8.31111 10.5555 8.33333 10.5111 8.33333 10.4666V1.99996ZM1.66667 1.99996V10.6666V10.4666V1.99996Z"
+                                                                fill="#606060" />
+                                                        </svg>
+                                                    </span>
+
+                                                    <span class="price">$ 14</span>
+
+                                                </div>
+
+                                            </div>
+                                        </div> 
+
+                                        <div class="cartlist-content">
+                                          <ul class="selecte-list">
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                             <li class="selecte-list-item">
+                                                <button class="selected-btn">
+                                                   <span class="text">Plain Chicken</span>
+                                                   <i class="fa-regular fa-x"></i>
+                                                </button>
+                                             </li>
+                                          </ul>
+                                        </div>
+                                    </li>
+                                    
+                                </ul>
+
+                                <!-- subtotal  -->
+
+                                <div class="subtotal">
+                                    <div class="subtotal-row">
+                                       <span class="title">Subtotal</span>
+                                       <span class="value">$ 28</span>
+                                    </div>
+                                    <div class="subtotal-row">
+                                       <span class="title">Tax 13 %</span>
+                                       <span class="value">$ 5</span>
+                                    </div>
+                                    <div class="subtotal-row">
+                                       <span class="title">Have a coupon?</span>
+                                       <span class="value"></span>
+                                    </div>
+                                    <div class="subtotal-row">
+                                      <div class="couponbox">
+                                       <input type="text" placeholder="write down your coupon code" id="coupon" name="coupon">
+                                       <button>Apply</button>
+                                      </div>
+                                    </div> 
+                                    <div class="subtotal-row">
+                                       <span class="title">Discount 15%</span>
+                                       <span class="value">$1.0</span>
+                                    </div>
+
+                                    
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="card-items-bottom">
+                            <div class="checkout-card">
+                                <div class="total">
+                                    <span>Total</span>
+                                    <span>$34</span>
+                                </div>
+                                <button class="checkout-btn" data-bs-toggle="modal" data-bs-target="#checoutModal">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <!--  add to card modal not combo  -->
+
+    <div class="modal  fade modal-lg select-pizza" id="addtoCartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            
+          <div class="modal-content p-3 p-lg-4">
+           
+            <div class="modal-header p-0">
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="image-container bg-danger w-100">
+                    <p>This is some text that will appear under the image with a gradient overlay.</p>
+                    <img src="assets/images/pizza.jpg" alt="Your Image">
+                    <div class="text">
+                       <div class="left">
+                        <h3 class="title">The Original Margherita</h3>
+                        <p class="content">Topped with spicy chicken marinated in bbq sauce, onions, capsicum, tomatoes & green chilies
+                        </p>
+
+                       </div>
+                       <div class="right">
+                        <span class="price">12.99 $</span>
+                       </div>
+                      
+                    </div>
+                </div> 
+            </div>
+            <div class="modal-body">
+                
+
+                
+                <!-- customization -->
+                <div class="customization">
+                    <div class="row g-4">
+                        <!-- pizza size -->
+                        <div class="col-lg-6">
+                            <div class="customization-box">
+                                <h3 class="title">Pizza Size</h3>
+                                <div class="content ">
+
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="pizza-size-1" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="pizza-size-1" class="customradio-label">7”</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="pizza-size-2" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="pizza-size-2" class="customradio-label">10”</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="pizza-size-3" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="pizza-size-3" class="customradio-label">13”</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="pizza-size-4" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="pizza-size-4" class="customradio-label">15”</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Crust Size -->
+    
+                        <div class="col-lg-6">
+                            <div class="customization-box">
+                                <h3 class="title">Crust Size</h3>
+                                <div class="content ">
+
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="deep-pan" class="customradio-box" name="crustSize" hidden
+                                                checked>
+                                            <label for="deep-pan" class="customradio-label">Deep Pan</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="thin-crust" class="customradio-box" name="crustSize" hidden
+                                                checked>
+                                            <label for="thin-crust" class="customradio-label">Thin Crust</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="stuffed-crust" class="customradio-box" name="crustSize" hidden
+                                                checked>
+                                            <label for="stuffed-crust" class="customradio-label">Stuffed Crust</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Toppings -->
+                        <div class="col-lg-6">
+                            <div class="customization-box">
+                                <h3 class="title">Crust Size</h3>
+                                <div class="content ">
+
+                                    <div class="single-row">
+                                        <div class="customcheck ">
+                                            <input type="checkbox" id="beef" class="customcheck-box" name="topping" hidden>
+                                            <label for="beef" class="customcheck-label">Beef</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customcheck ">
+                                            <input type="checkbox" id="plain-check" class="customcheck-box" name="topping" hidden>
+                                            <label for="plain-check" class="customcheck-label">Plain Chicken</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customcheck ">
+                                            <input type="checkbox" id="black-olives" class="customcheck-box" name="topping" hidden>
+                                            <label for="black-olives" class="customcheck-label">Black Olives</label>
+                                        </div>
+                                        <span>.5 $</span>
+                                    </div>
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dips  -->
+                        <div class="col-lg-6">
+                            <div class="customization-box">
+                                <h3 class="title">Crust Size</h3>
+                                <div class="content ">
+
+                                    <div class="single-row">
+                                        <div class="customcheck ">
+                                            <input type="checkbox" id="bbq" class="customcheck-box" name="dips" hidden>
+                                            <label for="bbq" class="customcheck-label">BBQ</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customcheck ">
+                                            <input type="checkbox" id="chives" class="customcheck-box" name="dips" hidden>
+                                            <label for="chives" class="customcheck-label">Sour Cream & Chives</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                    
+                                    <div class="single-row">
+                                        <div class="customcheck ">
+                                            <input type="checkbox" id="garlic" class="customcheck-box" name="dips" hidden>
+                                            <label for="garlic" class="customcheck-label">Garlic & Herb</label>
+                                        </div>
+                                        <span>9 $</span>
+                                    </div>
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- notes -->
+                        <div class="col-12">
+                             <div class="notebox">
+                                <h3 class="note-title">Any Note? (Optional)</h3>
+                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                             </div>
+                        </div>
+                         
+                    </div>
+                </div>
+               
+
+            </div>
+            <div class="modal-footer sticky-bottom bg-white">
+                <div class="footer-box">
+                    <div class="left">
+                        <ul class="selecte-list">
+                            <li class="selecte-list-item">
+                               <button class="selected-btn">
+                                  <span class="text">Plain Chicken</span>
+                                  <i class="fa-regular fa-x"></i>
+                               </button>
+                            </li>
+                            <li class="selecte-list-item">
+                               <button class="selected-btn">
+                                  <span class="text">Plain Chicken</span>
+                                  <i class="fa-regular fa-x"></i>
+                               </button>
+                            </li>
+                            <li class="selecte-list-item">
+                               <button class="selected-btn">
+                                  <span class="text">Plain Chicken</span>
+                                  <i class="fa-regular fa-x"></i>
+                               </button>
+                            </li>
+                            <li class="selecte-list-item">
+                               <button class="selected-btn">
+                                  <span class="text">Plain Chicken</span>
+                                  <i class="fa-regular fa-x"></i>
+                               </button>
+                            </li>
+                            <li class="selecte-list-item">
+                               <button class="selected-btn">
+                                  <span class="text">Plain Chicken</span>
+                                  <i class="fa-regular fa-x"></i>
+                               </button>
+                            </li>
+                         </ul>
+                    </div>
+                    <div class="right">
+                        <span class="price">12.99 $</span>
+                        <button class="addto-btn btn-ripple">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- combo card modal  -->
+    <div class="modal fade   modal-lg  select-pizza" id="comboCartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            
+            <div class="modal-content p-3 p-lg-4">
+             
+              <div class="modal-header p-0">
+                  <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="image-container bg-danger w-100">
+                      <p>This is some text that will appear under the image with a gradient overlay.</p>
+                      <img src="assets/images/pizza.jpg" alt="Your Image">
+                      <div class="text">
+                         <div class="left">
+                          <h3 class="title">The Original Margherita</h3>
+                          <p class="content">2 Medium Pizzas, 1 Classic Side, 1 Sides to Share, 1 Bottle Drink</p>
+  
+                         </div>
+                         <div class="right">
+                          <span class="price">12.99 $</span>
+                         </div>
+                        
+                      </div>
+                  </div> 
+              </div>
+              <div class="modal-body p-0 overflow-x-hidden">
+               <!-- tab  -->
+               <ul class="nav nav-tabs select-pizza-tab" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pizza1-tab" data-bs-toggle="tab" data-bs-target="#pizza1-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Pizza 1</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pizza2-tab" data-bs-toggle="tab" data-bs-target="#pizza2-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Pizza 2</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="slide-tab" data-bs-toggle="tab" data-bs-target="#slide-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Classic Side</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="drink-tab" data-bs-toggle="tab" data-bs-target="#drink-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Drink</button>
+                </li>
+               
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="pizza1-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+                    <h2 class="tab-title py-4">Select Pizza 1</h2>
+                    <!-- select pizza cards -->
+                    <div class="select-cards">
+                        <div class="row g-2">
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="select-card">
+                                    <figure class="combo-thumb">
+                                        <img src="assets/images/pizzo/for-combo.png" alt="combo pizza ">
+                                    </figure>
+                                    <h3 class="title">The Original Margherita</h3>
+                                    <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives</p>
+                                </div> 
+                            </div>
+                        </div>                                
+                    </div>
+                 
+                    <!-- selected pizza card  -->
+                 
+                    <div class="selected-pizza">
+                        <div class="left">
+
+                            <figure class="pizza-thumb">
+                                <img src="assets/images/pizzo/pizza-small.png" alt="selected pizza">
+                            </figure>
+                            <div class="pizza-info">
+                                <h3 class="title">The Original Margherita</h3>
+                                <p class="des">Mushrooms, Green Peppers, Red Onions, Sweetcorn, Black Olives </p>
+                            </div>
+
+                        </div>
+
+                        <div class="right">
+                            <span class="delete-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_111_7882" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                    <rect width="24" height="24" fill="#D9D9D9"/>
+                                    </mask>
+                                    <g mask="url(#mask0_111_7882)">
+                                    <path d="M9.4 16.15L12 13.55L14.6 16.15L15.65 15.1L13.05 12.5L15.65 9.9L14.6 8.85L12 11.45L9.4 8.85L8.35 9.9L10.95 12.5L8.35 15.1L9.4 16.15ZM7.3 20.5C6.8 20.5 6.375 20.325 6.025 19.975C5.675 19.625 5.5 19.2 5.5 18.7V6H4.5V4.5H9V3.625H15V4.5H19.5V6H18.5V18.7C18.5 19.2 18.325 19.625 17.975 19.975C17.625 20.325 17.2 20.5 16.7 20.5H7.3ZM17 6H7V18.7C7 18.7667 7.03333 18.8333 7.1 18.9C7.16667 18.9667 7.23333 19 7.3 19H16.7C16.7667 19 16.8333 18.9667 16.9 18.9C16.9667 18.8333 17 18.7667 17 18.7V6ZM7 6V19V18.7V6Z" fill="#606060"/>
+                                    </g>
+                                </svg>
+                                    
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- customization -->
+                    <div class="customization">
+                        <div class="row g-4">
+                            <!-- pizza size -->
+                            <div class="col-lg-6">
+                                <div class="customization-box">
+                                    <h3 class="title">Pizza Size</h3>
+                                    <div class="content ">
+
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="pizza-size-1" class="customradio-box" name="pzzaSize" hidden
+                                                    checked>
+                                                <label for="pizza-size-1" class="customradio-label">7”</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="pizza-size-2" class="customradio-box" name="pzzaSize" hidden
+                                                    checked>
+                                                <label for="pizza-size-2" class="customradio-label">10”</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="pizza-size-3" class="customradio-box" name="pzzaSize" hidden
+                                                    checked>
+                                                <label for="pizza-size-3" class="customradio-label">13”</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="pizza-size-4" class="customradio-box" name="pzzaSize" hidden
+                                                    checked>
+                                                <label for="pizza-size-4" class="customradio-label">15”</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Crust Size -->
+        
+                            <div class="col-lg-6">
+                                <div class="customization-box">
+                                    <h3 class="title">Crust Size</h3>
+                                    <div class="content ">
+
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="deep-pan" class="customradio-box" name="crustSize" hidden
+                                                    checked>
+                                                <label for="deep-pan" class="customradio-label">Deep Pan</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="thin-crust" class="customradio-box" name="crustSize" hidden
+                                                    checked>
+                                                <label for="thin-crust" class="customradio-label">Thin Crust</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customradio">
+                                                <input type="radio" id="stuffed-crust" class="customradio-box" name="crustSize" hidden
+                                                    checked>
+                                                <label for="stuffed-crust" class="customradio-label">Stuffed Crust</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                    
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Toppings -->
+                            <div class="col-lg-6">
+                                <div class="customization-box">
+                                    <h3 class="title">Crust Size</h3>
+                                    <div class="content ">
+
+                                        <div class="single-row">
+                                            <div class="customcheck ">
+                                                <input type="checkbox" id="beef" class="customcheck-box" name="topping" hidden>
+                                                <label for="beef" class="customcheck-label">Beef</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customcheck ">
+                                                <input type="checkbox" id="plain-check" class="customcheck-box" name="topping" hidden>
+                                                <label for="plain-check" class="customcheck-label">Plain Chicken</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customcheck ">
+                                                <input type="checkbox" id="black-olives" class="customcheck-box" name="topping" hidden>
+                                                <label for="black-olives" class="customcheck-label">Black Olives</label>
+                                            </div>
+                                            <span>.5 $</span>
+                                        </div>
+                                    
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Dips  -->
+                            <div class="col-lg-6">
+                                <div class="customization-box">
+                                    <h3 class="title">Crust Size</h3>
+                                    <div class="content ">
+
+                                        <div class="single-row">
+                                            <div class="customcheck ">
+                                                <input type="checkbox" id="bbq" class="customcheck-box" name="dips" hidden>
+                                                <label for="bbq" class="customcheck-label">BBQ</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        <div class="single-row">
+                                            <div class="customcheck ">
+                                                <input type="checkbox" id="chives" class="customcheck-box" name="dips" hidden>
+                                                <label for="chives" class="customcheck-label">Sour Cream & Chives</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                        
+                                        <div class="single-row">
+                                            <div class="customcheck ">
+                                                <input type="checkbox" id="garlic" class="customcheck-box" name="dips" hidden>
+                                                <label for="garlic" class="customcheck-label">Garlic & Herb</label>
+                                            </div>
+                                            <span>9 $</span>
+                                        </div>
+                                    
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- notes -->
+                            <div class="col-12">
+                                <div class="notebox">
+                                    <h3 class="note-title">Any Note? (Optional)</h3>
+                                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+               
+                </div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
+                <div class="tab-pane fade" id="pizza2-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">...</div>
+                <div class="tab-pane fade" id="slide-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">...</div>
+                <div class="tab-pane fade" id="drink-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="customization-box">
+                                <h3 class="title">Select Drinks</h3>
+                                <div class="content ">
+        
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="coke" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="coke" class="customradio-label">Coke (500ml)</label>
+                                        </div>
+                                        <span>Free</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="pepsi" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="pepsi" class="customradio-label">Pepsi (500ml)</label>
+                                        </div>
+                                        <span>Free</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="7up" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="7up" class="customradio-label">7up (500ml)</label>
+                                        </div>
+                                        <span>Free</span>
+                                    </div>
+                                    <div class="single-row">
+                                        <div class="customradio">
+                                            <input type="radio" id="water" class="customradio-box" name="pzzaSize" hidden
+                                                checked>
+                                            <label for="water" class="customradio-label">Water (1.25L)</label>
+                                        </div>
+                                        <span>Free</span>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+              </div>
+                  
+              </div>
+              <div class="modal-footer  ">
+                  <div class="footer-box">
+                      <div class="left">
+                          <ul class="selecte-list">
+                              <li class="selecte-list-item">
+                                 <button class="selected-btn">
+                                    <span class="text">Plain Chicken</span>
+                                    <i class="fa-regular fa-x"></i>
+                                 </button>
+                              </li>
+                              <li class="selecte-list-item">
+                                 <button class="selected-btn">
+                                    <span class="text">Plain Chicken</span>
+                                    <i class="fa-regular fa-x"></i>
+                                 </button>
+                              </li>
+                              <li class="selecte-list-item">
+                                 <button class="selected-btn">
+                                    <span class="text">Plain Chicken</span>
+                                    <i class="fa-regular fa-x"></i>
+                                 </button>
+                              </li>
+                              <li class="selecte-list-item">
+                                 <button class="selected-btn">
+                                    <span class="text">Plain Chicken</span>
+                                    <i class="fa-regular fa-x"></i>
+                                 </button>
+                              </li>
+                              <li class="selecte-list-item">
+                                 <button class="selected-btn">
+                                    <span class="text">Plain Chicken</span>
+                                    <i class="fa-regular fa-x"></i>
+                                 </button>
+                              </li>
+                           </ul>
+                      </div>
+                      <div class="right">
+                        
+                          <button class="addto-btn d-flex gap-3 align-items-center" type="button" role="tab"> <span>Next</span> <i class="fa-sharp fa-regular fa-arrow-right"></i></button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+ 
 
     <!-- JQUERY MIN JS  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"

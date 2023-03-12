@@ -106,9 +106,55 @@
 
 
     // selected button list
-  
+    .selecte-list {
+        @include list-horizontal;
+        flex-wrap: wrap;
+        gap: size(8);
+        padding-bottom: size(20);
+
+        .selected-btn {
+            @include setBgColor(#FFDBD0,$gray-900);
+            border: none;
+            padding: size(4);
+            @include radius(4);
+            @include flex;
+            align-items: center;
+            gap: size(12);
+            @include font($primaryFont,14,normal,normal,18);
+
+            svg {
+                @include square(14);
+               @include hover {
+                path {
+                    fill: $lightred;
+                }
+               }
+            }
+
+
+        }
+    } 
+   
 
    
+}
+
+.combo-titlebox {
+    @include flex-column;
+    gap: size(0);
+    padding-bottom: size(10);
+    .title {
+        color: $gray-900;
+        span {
+            color: $gray-600;
+            font-size: size(12);
+        }
+    }
+
+    .des {
+        font-size: size(12);
+
+    }
 }
 
 .selecte-list {
@@ -136,29 +182,6 @@
            }
         }
 
-<<<<<<< HEAD
 
     }
 } 
-=======
-   
-}
-
-.combo-titlebox {
-    @include flex-column;
-    gap: size(0);
-    padding-bottom: size(10);
-    .title {
-        color: $gray-900;
-        span {
-            color: $gray-600;
-            font-size: size(12);
-        }
-    }
-
-    .des {
-        font-size: size(12);
-
-    }
-}
->>>>>>> 6a648d3b6664365532cd965ef5884c13786458e9
