@@ -1,3 +1,67 @@
 @use "../../global" as *;
 @use "../../partials" as *;
 
+
+// Select the tab navigation links
+.nav-tabs {
+
+      
+
+    &.select-pizza-tab {
+      // Custom styles for the tab navigation
+      border: none;
+      font-size: 18px;
+      background-color: $cartBg;
+      padding: size(16);
+      @include radius(4);
+      @include flex;
+      gap: size(10);
+      @include breakpoint(mobile576) {
+        gap: size(20);
+      }
+      @include breakpoint(tab992) {
+        gap: size(36);
+    
+      }
+      // Select the active tab link
+        .nav-link {
+            border: none;
+            @include border-single(bottom,solid,3,transparent);
+            color: $gray-600;
+            @include font($primaryFont,14,normal,normal,20);
+        }
+      .nav-link.active {
+        color: $primary ;
+        background-color: transparent;
+        border-color: $primary;
+        padding: size(12) size(0);
+      
+      }
+      
+      // Select the disabled tab links
+      .nav-link.disabled {
+        opacity: 0.5;
+      } 
+
+  
+    }
+  }
+  
+  // Select the tab content panes
+  .tab-content {
+    &.tab-content-custom {
+      // Custom styles for the tab content panes
+      border: none;
+      padding: 20px;
+      
+      // Select the active tab pane
+      .tab-pane.active {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+
+  .tab-title {
+    color: $gray-900;
+    @include font($primaryFont,18,medium,normal,23);
+  }

@@ -106,35 +106,36 @@
 
 
     // selected button list
-    .selecte-list {
-        @include list-horizontal;
-        flex-wrap: wrap;
-        gap: size(8);
-        padding-bottom: size(20);
-
-        .selected-btn {
-            @include setBgColor(#FFDBD0,$gray-900);
-            border: none;
-            padding: size(4);
-            @include radius(4);
-            @include flex;
-            align-items: center;
-            gap: size(12);
-            @include font($primaryFont,14,normal,normal,18);
-
-            svg {
-                @include square(14);
-               @include hover {
-                path {
-                    fill: $lightred;
-                }
-               }
-            }
-
-
-        }
-    } 
-   
+  
 
    
 }
+
+.selecte-list {
+    @include list-horizontal;
+    flex-wrap: wrap;
+    gap: size(8);
+    padding-bottom: size(20);
+
+    .selected-btn {
+        @include setBgColor(#FFDBD0,$gray-900);
+        border: none;
+        padding: size(4);
+        @include radius(4);
+        @include flex;
+        align-items: center;
+        gap: size(12);
+        @include font($primaryFont,14,normal,normal,18);
+
+        svg {
+            @include square(14);
+           @include hover {
+            path {
+                fill: $lightred;
+            }
+           }
+        }
+
+
+    }
+} 

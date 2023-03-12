@@ -100,13 +100,8 @@
     margin: 0 10px;
 }
 
-/* the parent */
-.slick-list {
- 
-} 
-.categories {
- 
-}
+
+
 
 .card-category{
     @include square(113);
@@ -139,4 +134,104 @@
             }
         }
     }
+}
+.selected-pizza {
+    margin-top: size(8);
+    @include flex-between;
+    align-items: center;
+    background: $white;
+    @include radius(8);
+    padding: size(8);
+    margin-bottom: size(20);
+    margin-right: size(20);
+
+    .pizza-thumb {
+        height: size(80);
+        width: size(106);
+        overflow: hidden;
+        @include radius(4);
+        img {
+            @include wh100;
+            object-fit: cover;
+        }
+    }
+
+    .left {
+        @include flex;
+        gap: size(20);
+        text-align: left;
+    }
+
+    .pizza-info {
+        @include flex-column;
+        gap: size(8);
+        max-width: size(200);
+        .title {
+            color: $gray-700;
+            @include font($primaryFont,16,medium,normal,20);
+        }
+
+        .des {
+            color: $gray-600;
+            @include font($primaryFont,14,normal,normal,20);
+            @include line-clamp-3;
+        }
+    }
+
+    .right {
+        svg {
+            path {
+                @include transitionsall;
+            }
+            @include hover {
+                path {
+                    fill: $lightred;
+                }
+            }
+        }
+    }
+
+}
+
+
+.select-card {
+    @include flex-column;
+    gap: size(8);
+    background: $white;
+    @include radius(8);
+    padding: size(16);
+    text-align: center;
+
+    .combo-thumb {
+        width: 100%;
+        height: size(160);
+        @include radius(8);
+        overflow: hidden;
+        height: size(280);
+        @include breakpoint(mobile576) {
+            height: size(160);
+        }
+        @include hover {
+            img {
+                transform: scale(1.1)
+            }
+        }
+
+        img {
+            @include wh100;
+            object-fit: cover;
+            @include transitiontransform;
+        }
+    }
+
+    .title {
+        color: $gray-700;
+        @include font($primaryFont,16,medium,normal,20);
+    }
+    .des {
+        color: $gray-600;
+        @include font($primaryFont,14,normal,normal,20);
+        @include line-clamp-3;
+    }
+
 }
