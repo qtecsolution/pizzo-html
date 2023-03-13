@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
 
     <!-- PIZZO CSS -->
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css"> 
 </head>
 
 <body>
@@ -2996,6 +2996,7 @@
 
             box.addEventListener('mouseenter', () => {
                 const endHeight = box.scrollHeight; /* Get expanded height */
+                console.log(endHeight);
                 box.style.height = `${startHeight}px`; /* Set initial height */
                 box.offsetHeight; /* Trigger repaint */
                 box.style.height = `${endHeight}px`; /* Set expanded height */
