@@ -45,23 +45,130 @@
 
   
     }
-  }
-  
-  // Select the tab content panes
-  .tab-content {
-    &.tab-content-custom {
-      // Custom styles for the tab content panes
-      border: none;
-      padding: 20px;
+
+    &.order-tab {
+      @include flex-column;
+      gap: size(10);
+      border-bottom: 0;
+
+      .nav-link { 
+        padding: size(16);
+        @include flex-between;
+        @include border(solid,1,$gray-300);
+        @include radius(8);
+
+        .left {
+          @include flex-column;
+          align-items: flex-start;
+          gap: size(8);
+
+          .id {
+            color: $gray-900;
+            @include font($primaryFont,16,normal,normal,20);
+
+          }
+          .date {
+            color: $gray-600;
+            @include font($primaryFont,14,normal,normal,20);
+
+          }
+          
+        }
+        .right {
+          .price {
+            color: $gray-900;
+            @include font($primaryFont,20,normal,normal,24);
+
+          }
+        }
+      }
+
+      .nav-link.active {
+       border-color: $primary;
       
-      // Select the active tab pane
-      .tab-pane.active {
-        background-color: #f1f1f1;
       }
     }
   }
+  
+
 
   .tab-title {
     color: $gray-900;
     @include font($primaryFont,18,medium,normal,23);
+  }
+
+  .myorders {
+    @include border-single(left,solid,1,$gray-300); 
+    height: 100%;
+    &-header {
+      @include flex-between;
+      @include border-single(bottom,solid,1,$gray-300); 
+      padding: size(20) size(35);
+      color: $gray-900;
+
+      .status {
+        background: $success;
+        padding: size(4) size(8);
+        @include radius(4);
+        color: $white;
+      
+
+      }
+    }
+    &-body {
+      padding: size(20) size(35);
+      padding-right: size(10);
+      @include flex-column;
+      gap: size(40);
+    }
+
+    .single-order {
+      @include flex-column;
+      gap: size(20);
+      .order-info {
+        @include flex-between;
+        .left {
+          @include flex-column;
+          gap: size(5);
+        }
+
+        .right {
+
+        }
+        .title {
+          color: $gray-900;
+          @include font($primaryFont,16,normal,normal,20);
+
+        }
+        .des {
+          color: $gray-600;
+          @include font($primaryFont,12,normal,normal,14);
+
+
+        }
+        .quantity {
+          color: $lightred;
+          @include font($primaryFont,14,normal,normal,18);
+
+        }
+        .price {
+          color: $gray-900;
+          @include font($primaryFont,16,normal,normal,20);
+
+        }
+      }
+      .order-options {  
+        @include flex;
+        flex-wrap: wrap;
+        gap: size(8);
+      }
+      .option {
+        background: #FFF7F5;
+        @include radius(4);
+        padding: size(4) size(8);
+        @include font($primaryFont,14,normal,normal,18);
+        color: $gray-900;
+
+      }
+    }
   }

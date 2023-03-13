@@ -29,3 +29,22 @@
 .search-input {
   min-width: size(400);
 }
+
+.mobile-search-wrapper {
+  position: relative;
+  input {
+    @include w100;
+   
+    padding: size(4);
+    padding-left: size(40);
+    @include border(solid,1,$gray-300);
+    @include radius(4);
+    
+  }
+  span {
+    position: absolute;
+    left: size(10);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
